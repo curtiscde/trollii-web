@@ -120,100 +120,12 @@
   
                 <div class="mdc-grid-list">
                   <ul class="mdc-grid-list__tiles">
-                    <li class="mdc-grid-tile">
+                    <li class="mdc-grid-tile" ng-repeat="item in items">
                       <div class="mdc-grid-tile__primary">
                         <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
                       </div>
                       <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
-                      </span>
-                    </li>
-                    <li class="mdc-grid-tile">
-                      <div class="mdc-grid-tile__primary">
-                        <img class="mdc-grid-tile__primary-content" src="http://placehold.it/200x200" />
-                      </div>
-                      <span class="mdc-grid-tile__secondary">
-                        <span class="mdc-grid-tile__title">Title</span>
+                        <span class="mdc-grid-tile__title">{{ item.name }}</span>
                       </span>
                     </li>
                   </ul>
@@ -231,6 +143,7 @@
         <script src="scripts/services/authservice.js"></script>
         <script src="scripts/services/userservice.js"></script>
         <script src="scripts/services/listservice.js"></script>
+        <script src="scripts/services/itemservice.js"></script>
 
         <script src="scripts/main.js"></script>
         <script src="scripts/auth.js"></script>
