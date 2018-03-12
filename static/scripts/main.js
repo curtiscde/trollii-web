@@ -49,8 +49,10 @@
             $scope.isAuthenticated = true;
             lock.getUserInfo(localStorage.getItem('accessToken'), function(error, profile) {
                 if (error) {
-                // Handle error
-                return;
+                    localStorage.removeItem('accessToken');
+                    $scope.isAuthenticated = false;
+                    $scope.$apply();
+                    return;
                 }
 
                 console.log(profile);
