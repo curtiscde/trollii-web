@@ -1,1 +1,7 @@
-# trollii-web
+# Trollii Web App
+
+## Development
+
+```
+gulp build
+```
