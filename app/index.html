@@ -103,7 +103,7 @@
             <div class="mdl-grid">
 
               <div ng-controller="authController">
-                <div class="mdl-card mdl-shadow--6dp" ng-show="!isAuthenticated">
+                <div class="mdl-card mdl-shadow--6dp" ng-show="!user.isAuthenticated">
                   <div class="mdl-card__supporting-text">
                     <button class="mdl-button mdl-js-button mdl-button--raised" ng-click="login();">
                       Login / Signup
@@ -119,9 +119,14 @@
           </div>
           <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+        <script src="scripts/services/authservice.js"></script>
+        <script src="scripts/services/userservice.js"></script>
+
         <script src="scripts/main.js"></script>
         <script src="scripts/auth.js"></script>
-        <script src="scripts/authservice.js"></script>
         <script src="scripts/drawer.js"></script>
+
+        
       </body>
   </html>

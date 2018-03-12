@@ -13,11 +13,15 @@
         }
     });
 
-    angular.module('trollii-web.auth', [])
-        .controller('authController', function($scope){
+    angular.module('trollii-web.auth', [
+        'trollii-web.userservice'
+    ])
+        .controller('authController', function($scope, userservice){
 
-            $scope.isAuthenticated = false;
-            console.log('$scope.isAuthenticated', $scope.isAuthenticated);
+            userservice.user.isAuthenticated = false;
+            console.log('userservice.user.isAuthenticated', userservice.user.isAuthenticated);
+
+            $scope.user = userservice.user;
     
             lock.on("authenticated", function(authResult) {
     
@@ -34,25 +38,25 @@
                   console.log(authResult.accessToken);
                   console.log(profile);
     
-                  $scope.isAuthenticated = true;
-                    console.log('$scope.isAuthenticated', $scope.isAuthenticated);
+                  userservice.user.isAuthenticated = true;
+                    console.log('userservice.user.isAuthenticated', userservice.user.isAuthenticated);
     
                     $scope.$apply();
                 });
             });
     
             if (localStorage.getItem('accessToken')){
-                $scope.isAuthenticated = true;
+                userservice.user.isAuthenticated = true;
                 lock.getUserInfo(localStorage.getItem('accessToken'), function(error, profile) {
                     if (error) {
                         localStorage.removeItem('accessToken');
-                        $scope.isAuthenticated = false;
+                        userservice.user.isAuthenticated = false;
                         $scope.$apply();
                         return;
                     }
     
                     console.log(profile);
-                    console.log('$scope.isAuthenticated', $scope.isAuthenticated);
+                    console.log('userservice.user.isAuthenticated', userservice.user.isAuthenticated);
     
                     $scope.profile = {
                         picture: profile.picture,
