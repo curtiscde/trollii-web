@@ -66,12 +66,6 @@
             $scope.login = function(){
                 lock.show();
             }
-    
-            $scope.logout = function(){
-                localStorage.removeItem('accessToken');
-                localStorage.removeItem('profile');
-                window.location = '';
-            }
 
         });
 
