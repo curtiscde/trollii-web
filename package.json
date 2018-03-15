@@ -1,6 +1,6 @@
 {
   "name": "trollii-web",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,8 @@
   "devDependencies": {
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "@material/grid-list": "^0.30.0"
   }
 }
