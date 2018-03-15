@@ -13,13 +13,8 @@
 
                 listservice.getLists().then(function(data){
                     if (data.data.length){
-                        var topListId = data.data[0]._id;
-                        
-                        itemservice.getItems(topListId).then(function(itemData){
-                            $scope.items = itemData.data;
-                            console.log(itemData.data);
-                        });
-
+                        var topList = data.data[0];
+                        $scope.items = topList.items;
                     }
                 });
 
