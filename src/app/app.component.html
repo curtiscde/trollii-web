@@ -1,5 +1,14 @@
-<app-sidebar></app-sidebar>
-<mat-sidenav>
-    sidenav content
-</mat-sidenav>
-<button mat-button>My Button</button>
+
+<mat-sidenav-container>
+    <mat-sidenav #snav [mode]="'over'" [opened]="true"
+        [fixedInViewport]="true">
+        Side Nav Content
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <mat-icon (click)="snav.toggle()">menu</mat-icon>
+            <h1 style="margin-left: 8px;">Trollii</h1>
+        </mat-toolbar>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
