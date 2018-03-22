@@ -1,0 +1,31 @@
+
+<mat-sidenav-container>
+    <mat-sidenav #snav [mode]="'over'" [opened]="true"
+        [fixedInViewport]="true">
+
+        <h2>Trollii</h2>
+        
+        <mat-nav-list>
+            <a mat-list-item>Logout</a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <mat-icon (click)="snav.toggle()">menu</mat-icon>
+            <h1 style="margin-left: 8px;">Trollii</h1>
+        </mat-toolbar>
+        <mat-card>
+            <mat-form-field>
+                <input matInput placeholder="Enter Item">
+            </mat-form-field>
+        </mat-card>
+        <mat-grid-list cols="2" rowHeight="2:1" gutterSize="4">
+            <mat-grid-tile>Item One</mat-grid-tile>
+            <mat-grid-tile>Item Two</mat-grid-tile>
+            <mat-grid-tile>Item Three</mat-grid-tile>
+            <mat-grid-tile>Item Four</mat-grid-tile>
+        </mat-grid-list>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
