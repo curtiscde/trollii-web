@@ -40,8 +40,11 @@ import {
 } from '@angular/material';
 
 
+
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -52,6 +55,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -85,7 +89,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MatToolbarModule,
     MatTooltipModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

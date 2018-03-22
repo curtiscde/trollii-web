@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 
-  toggleSideNav(event) {
-    
-    
-
+  constructor(public authService: AuthService) {}
+  
+  ngOnInit() {
+    if (!this.authService.isAuthenticated()){
+      this.authService.login();
+    }
   }
+
+  logout() {
+    this.authService.logout();
+  }
+
 }
