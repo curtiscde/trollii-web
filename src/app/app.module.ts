@@ -45,12 +45,14 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 import { AuthService } from './auth.service';
+import { ItemsComponent } from './items/items.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent
+    SidebarComponent,
+    ItemsComponent
   ],
   imports: [
     BrowserModule,
