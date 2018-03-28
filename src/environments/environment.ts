@@ -8,6 +8,6 @@ export const environment = {
   auth0: {
     domain: 'curt.auth0.com',
     clientId: 'pDx70JLEPV6h0w4Bxjhq8xzV8Lgmt7xK',
-    callbackURL: 'http://localhost:4200'
+    callbackURL: 'http://localhost:4200/login'
   }
 };

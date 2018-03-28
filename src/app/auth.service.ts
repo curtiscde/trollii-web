@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { environment } from '../environments/environment';
 
 import { tokenNotExpired } from 'angular2-jwt';
 import Auth0Lock from 'auth0-lock';
+
+
 
 @Injectable()
 export class AuthService {
@@ -29,7 +33,7 @@ export class AuthService {
     this.auth0Options
   );
 
-  constructor() {
+  constructor(private router: Router) {
     this.lock.on('authenticated', (authResult: any) => {
       this.lock.getUserInfo(authResult.accessToken, (error, profile) => {
         if (error) {
@@ -38,6 +42,7 @@ export class AuthService {
     
         localStorage.setItem('token', authResult.idToken);
         localStorage.setItem('profile', JSON.stringify(profile));
+        this.router.navigate(['/']);
       });
     });
 
