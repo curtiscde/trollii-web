@@ -12,9 +12,6 @@ export class AppComponent {
   constructor(public authService: AuthService) {}
   
   ngOnInit() {
-    if (!this.authService.isAuthenticated()){
-      this.authService.login();
-    }
   }
 
   logout() {
