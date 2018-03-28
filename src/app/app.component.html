@@ -1,28 +1,3 @@
+<router-outlet></router-outlet>
 
-<mat-sidenav-container>
-    <mat-sidenav #snav [mode]="'over'" [opened]="false"
-        [fixedInViewport]="true">
-
-        <h2>Trollii</h2>
-        
-        <mat-nav-list>
-            <a mat-list-item (click)="logout()">Logout</a>
-        </mat-nav-list>
-
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <mat-toolbar color="primary">
-            <mat-icon (click)="snav.toggle()">menu</mat-icon>
-            <h1 style="margin-left: 8px;">Trollii</h1>
-        </mat-toolbar>
-        <mat-card>
-            <mat-form-field>
-                <input matInput placeholder="Enter Item">
-            </mat-form-field>
-        </mat-card>
-
-        <app-items></app-items>
-        
-    </mat-sidenav-content>
-</mat-sidenav-container>
 

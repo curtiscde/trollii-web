@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 
+import { RouterModule, Routes } from '@angular/router';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -46,13 +48,18 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
 import { AuthService } from './auth.service';
 import { ItemsComponent } from './items/items.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    ItemsComponent
+    ItemsComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +96,8 @@ import { ItemsComponent } from './items/items.component';
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    AppRoutingModule
   ],
   providers: [
     AuthService
