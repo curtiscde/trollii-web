@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
       .subscribe(data => {
         this.list = data[0];
         cb();
-      }
+      })
   }
 
 }

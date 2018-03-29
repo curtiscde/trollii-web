@@ -46,7 +46,6 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 import { AuthService } from './auth.service';
-import { ItemsComponent } from './items/items.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -58,7 +57,6 @@ import { ListComponent } from './list/list.component';
   declarations: [
     AppComponent,
     SidebarComponent,
-    ItemsComponent,
     HomeComponent,
     LoginComponent,
     ListAddComponent,
