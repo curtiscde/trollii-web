@@ -3,5 +3,6 @@
 
 
 <mat-nav-list *ngIf="isAuthenticated()">
+    <a mat-list-item routerLink="/addlist"><mat-icon matListIcon>add</mat-icon> Add New List</a>
     <a mat-list-item (click)="logout()"><mat-icon matListIcon>exit_to_app</mat-icon> Logout</a>
 </mat-nav-list>

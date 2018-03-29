@@ -7,7 +7,11 @@
     </mat-sidenav>
     <mat-sidenav-content>
         
-        <app-toolbar></app-toolbar>
+        <mat-toolbar color="primary">
+            <mat-icon (click)="snav.toggle()">menu</mat-icon>
+            <h1 style="margin-left: 8px;">Trollii</h1>
+        </mat-toolbar>
+
         <router-outlet></router-outlet>
         
     </mat-sidenav-content>
