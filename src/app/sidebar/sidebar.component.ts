@@ -24,7 +24,9 @@ export class SidebarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getLists();
+    if (this.isAuthenticated()){
+      this.getLists();
+    }
   }
 
   isAuthenticated() {

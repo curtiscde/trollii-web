@@ -1,6 +1,7 @@
 <h2>Trollii</h2>
 
 <mat-nav-list *ngIf="isAuthenticated()">
+    <a mat-list-item *ngFor="let list of lists" [routerLink]="['list', list._id ]"><mat-icon matListIcon>list</mat-icon> {{ list.name }}</a>
     <a mat-list-item routerLink="/addlist"><mat-icon matListIcon>add</mat-icon> Add New List</a>
     <a mat-list-item (click)="logout()"><mat-icon matListIcon>exit_to_app</mat-icon> Logout</a>
 </mat-nav-list>

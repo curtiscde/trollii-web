@@ -18,7 +18,7 @@ export class AuthService {
     auth: {
       redirectUrl: environment.auth0.callbackURL,
       responseType: 'token id_token',
-      audience: `https://${environment.auth0.domain}/userinfo`,
+      audience: environment.auth0.audience,
       params: {
         scope: 'openid profile email'
       }
@@ -39,8 +39,10 @@ export class AuthService {
         if (error) {
           throw new Error(error);
         }
+
+        console.log(authResult);
     
-        localStorage.setItem('token', authResult.idToken);
+        localStorage.setItem('token', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
         this.router.navigate(['/']);
       });
