@@ -1,6 +1,7 @@
-<mat-grid-list cols="2" rowHeight="2:1" gutterSize="4">
-  <mat-grid-tile>Item One</mat-grid-tile>
-  <mat-grid-tile>Item Two</mat-grid-tile>
-  <mat-grid-tile>Item Three</mat-grid-tile>
-  <mat-grid-tile>Item Four</mat-grid-tile>
-</mat-grid-list>
+<mat-card *ngFor="let item of items">
+  <mat-card-header>
+    <div mat-card-avatar class="item-header-image"></div>
+    <mat-card-title>{{ item.name }}</mat-card-title>
+    <mat-card-subtitle>Added X/Y/Z</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
