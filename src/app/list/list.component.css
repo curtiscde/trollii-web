@@ -1,0 +1,8 @@
+.item-header-image {
+    background-image: url('https://placehold.it/200x200');
+    background-size: cover;
+}
+
+mat-card{
+    margin: 12px 6px;
+}
