@@ -21,4 +21,18 @@ export class ListService {
     return this.http.get<List[]>('http://localhost:8080/api/list', httpOptions);
   }
 
+  addList(name: String){
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+
+    return this.http.post<List[]>('http://localhost:8080/api/list', {
+      name: name
+    }, httpOptions);
+  }
+
 }
