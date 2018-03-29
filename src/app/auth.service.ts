@@ -39,8 +39,6 @@ export class AuthService {
         if (error) {
           throw new Error(error);
         }
-
-        console.log(authResult);
     
         localStorage.setItem('token', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
