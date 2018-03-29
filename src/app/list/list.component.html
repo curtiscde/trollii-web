@@ -1,0 +1,21 @@
+<div *ngIf="list">
+
+  <mat-card>
+    <mat-card-title>
+      {{ list.name }}
+    </mat-card-title>
+    <mat-card-content>
+      <mat-form-field>
+          <input matInput placeholder="Enter Item">
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+    
+  <mat-card *ngFor="let item of list.items">
+    <mat-card-header>
+      <div mat-card-avatar class="item-header-image"></div>
+      <mat-card-title>{{ item.name }}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+</div>
