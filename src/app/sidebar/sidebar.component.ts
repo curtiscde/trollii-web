@@ -19,6 +19,10 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
   }
 
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
+
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
