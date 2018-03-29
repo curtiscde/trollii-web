@@ -7,7 +7,8 @@ export const environment = {
   production: false,
   auth0: {
     domain: 'curt.auth0.com',
-    clientId: 'pDx70JLEPV6h0w4Bxjhq8xzV8Lgmt7xK',
-    callbackURL: 'http://localhost:4200/login'
+    clientId: '1fe4r254Q8wnuPclBDFi6iGBNGYLNT2Z',
+    callbackURL: 'http://localhost:4200/login',
+    audience: 'https://trolliidev.com/'
   }
 };
