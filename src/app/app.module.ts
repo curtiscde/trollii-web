@@ -51,6 +51,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ListAddComponent } from './list-add/list-add.component';
+import { ListComponent } from './list/list.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { ListAddComponent } from './list-add/list-add.component';
     ItemsComponent,
     HomeComponent,
     LoginComponent,
-    ListAddComponent
+    ListAddComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
