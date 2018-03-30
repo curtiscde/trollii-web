@@ -21,9 +21,12 @@
     </mat-card-title>
     <mat-card-content>
       <mat-form-field>
-          <input matInput placeholder="Enter Item">
+          <input #itemName matInput placeholder="Enter Item">
       </mat-form-field>
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="addItem(itemName.value); itemName.value=''; itemName.focus();">Add Item</button>
+    </mat-card-actions>
   </mat-card>
     
   <mat-card *ngFor="let item of list.items">
