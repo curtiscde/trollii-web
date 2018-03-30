@@ -9,6 +9,9 @@
           <input matInput placeholder="Enter Item">
       </mat-form-field>
     </mat-card-content>
+    <mat-card-actions>
+      <button mat-button class="mat-raised-button mat-warn" (click)="removeList()">Remove List</button>
+    </mat-card-actions>
   </mat-card>
     
   <mat-card *ngFor="let item of list.items">

@@ -21,6 +21,8 @@ export class ListComponent implements OnInit {
     private listService: ListService
   ) { }
 
+  list: List;
+
   ngOnInit() {
 
     this.getList();
@@ -31,13 +33,15 @@ export class ListComponent implements OnInit {
 
   }
 
-  list: List;
-
   getList() {
     this.listService.getLists()
       .subscribe(data => {
         this.list = data.find(list => list._id === this.route.snapshot.paramMap.get('id'))
       })
+  }
+
+  removeList() {
+    console.log(`remove list ${this.list._id}`);
   }
 
 }
