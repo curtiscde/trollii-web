@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import { ActivatedRoute } from '@angular/router';
+
+import { MatSnackBar } from '@angular/material';
 
 import { AuthService } from '../auth.service';
 import { ListService } from '../list.service';
@@ -18,7 +21,9 @@ export class ListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private listService: ListService
+    private router: Router,
+    private listService: ListService,
+    public snackBar: MatSnackBar
   ) { }
 
   list: List;
@@ -42,6 +47,13 @@ export class ListComponent implements OnInit {
 
   removeList() {
     console.log(`remove list ${this.list._id}`);
+    this.listService.deleteList(this.list)
+      .subscribe(data => {
+        this.snackBar.open(`List "${this.list.name}" deleted`, '', {
+          duration: 1000
+        });
+        this.router.navigate(['']);
+      });
   }
 
 }

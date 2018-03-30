@@ -35,4 +35,15 @@ export class ListService {
     }, httpOptions);
   }
 
+  deleteList(list: List){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      })
+    };
+
+    return this.http.delete<List[]>(`http://localhost:8080/api/list/${list._id}`, httpOptions);
+  }
+
 }

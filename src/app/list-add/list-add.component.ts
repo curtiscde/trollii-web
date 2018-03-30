@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { MatSnackBar } from '@angular/material';
 
 import { ListService } from '../list.service';
 
 import { List } from '../models/list';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-list-add',
@@ -29,7 +29,7 @@ export class ListAddComponent implements OnInit {
   add(name: string){
     this.listService.addList(name).subscribe(lists => {
       this.snackBar.open(`List "${name}" added`, '', {
-        duration: 500
+        duration: 1000
       });
       this.list = lists.find(l => l.name === name);
       this.router.navigate(['/list', this.list._id]);
