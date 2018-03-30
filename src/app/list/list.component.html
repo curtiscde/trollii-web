@@ -2,7 +2,22 @@
 
   <mat-card>
     <mat-card-title>
+      <mat-toolbar>
       {{ list.name }}
+      
+      <span class="spacer"></span>
+      
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="removeList()">
+          <mat-icon>delete</mat-icon>
+          <span>Remove</span>
+        </button>
+      </mat-menu>
+      
+    </mat-toolbar>
     </mat-card-title>
     <mat-card-content>
       <mat-form-field>
