@@ -22,7 +22,13 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.getList();
+
+    this.route.params.subscribe( params => {
+      this.getList();
+    });
+
   }
 
   list: List;
