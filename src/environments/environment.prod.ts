@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  serviceUrl: '',
   auth0: {
     domain: 'your-awesome-domain.auth0.com',
     clientId: 'XXXXXXXXXXXXXXXXXXXXXXXXXXX',

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
+import { environment } from '../environments/environment';
+
 import { List } from './models/list';
 
 
@@ -21,7 +23,7 @@ export class ItemService {
 
   addItem(listid: string, name: string){
 
-    return this.http.post<List>('http://localhost:8080/api/item', {
+    return this.http.post<List>(`${environment.serviceUrl}/api/item`, {
       listid: listid,
       name: name
     }, this.getHttpOptions());
@@ -29,7 +31,7 @@ export class ItemService {
   }
 
   removeItem(listid: string, itemid: string){
-    return this.http.delete<List>(`http://localhost:8080/api/item/${listid}/${itemid}`, this.getHttpOptions());
+    return this.http.delete<List>(`${environment.serviceUrl}/api/item/${listid}/${itemid}`, this.getHttpOptions());
   }
 
 }
