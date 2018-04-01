@@ -1,5 +1,7 @@
 <mat-sidenav-container>
-    <mat-sidenav #snav [mode]="'over'" [opened]="false"
+    <mat-sidenav
+        [mode]="'over'"
+        [(opened)]="sidebarService.opened"
         [fixedInViewport]="true">
 
         <app-sidebar></app-sidebar>
@@ -8,7 +10,7 @@
     <mat-sidenav-content>
         
         <mat-toolbar color="primary">
-            <mat-icon (click)="snav.toggle()">menu</mat-icon>
+            <mat-icon (click)="sidebarService.opened = true">menu</mat-icon>
             <h1 style="margin-left: 8px;">Trollii</h1>
         </mat-toolbar>
 
