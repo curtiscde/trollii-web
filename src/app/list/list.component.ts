@@ -70,7 +70,13 @@ export class ListComponent implements OnInit {
   }
 
   removeItem(item: Item){
-    console.log(item._id);
+    this.itemService.removeItem(this.list._id, item._id)
+      .subscribe(list => {
+        this.snackBar.open(`Item "${item.name}" removed`, '', {
+          duration: 1000
+        });
+        this.list = list;
+      });
   }
 
 }
