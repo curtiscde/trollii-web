@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material';
 import { AuthService } from '../auth.service';
 import { ListService } from '../list.service';
 import { ItemService } from '../item.service';
+import { SidebarService } from '../sidebar.service';
 
 import { List } from '../models/list';
 import { Item } from '../models/item';
@@ -25,9 +26,10 @@ export class ListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    public snackBar: MatSnackBar,
     private listService: ListService,
     private itemService: ItemService,
-    public snackBar: MatSnackBar
+    private sidebarService: SidebarService    
   ) { }
 
   list: List;
