@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 
+import { environment } from '../environments/environment';
+
 import { List } from './models/list';
 
 @Injectable()
@@ -9,41 +11,29 @@ export class ListService {
 
   constructor(private http: HttpClient) { }
 
-  getLists() {
-
-    const httpOptions = {
+  private getHttpOptions() {
+    return {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': 'Bearer ' + localStorage.getItem('token')
       })
-    };
+    }
+  }
 
-    return this.http.get<List[]>('http://localhost:8080/api/list', httpOptions);
+  getLists() {
+    return this.http.get<List[]>(`${environment.serviceUrl}/api/list`, this.getHttpOptions());
   }
 
   addList(name: String){
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    };
-
-    return this.http.post<List[]>('http://localhost:8080/api/list', {
+    return this.http.post<List[]>(`${environment.serviceUrl}/api/list`, {
       name: name
-    }, httpOptions);
+    }, this.getHttpOptions());
+
   }
 
   deleteList(list: List){
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    };
-
-    return this.http.delete<List[]>(`http://localhost:8080/api/list/${list._id}`, httpOptions);
+    return this.http.delete<List[]>(`${environment.serviceUrl}/api/list/${list._id}`, this.getHttpOptions());
   }
 
 }
