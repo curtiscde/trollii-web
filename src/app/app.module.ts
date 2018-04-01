@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import {
   MatAutocompleteModule,
@@ -66,6 +67,7 @@ import { ListComponent } from './list/list.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FlexLayoutModule,
 
     MatAutocompleteModule,
     MatButtonModule,

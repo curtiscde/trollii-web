@@ -30,13 +30,12 @@
   </mat-card>
     
   <mat-card *ngFor="let item of list.items">
-    <mat-card-header>
-      <div mat-card-avatar class="item-header-image"></div>
-      <mat-card-title>{{ item.name }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-actions>
+    <mat-card-content fxLayout="row" >
+      <!-- <div mat-card-avatar class="item-header-image"></div> -->
+      <span>{{ item.name }}</span>
+      <div fxFlex ></div>
       <button mat-button (click)="removeItem(item)">Done</button>
-    </mat-card-actions>
+    </mat-card-content>
   </mat-card>
 
 </div>
