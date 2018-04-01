@@ -1,18 +1,18 @@
+<mat-toolbar color="primary">
+    <mat-icon (click)="sidebarService.toggle()" class="menu">menu</mat-icon>
+    <h1 style="margin-left: 8px;">Trollii</h1>
+</mat-toolbar>
 <mat-sidenav-container>
-    <mat-sidenav #snav [mode]="'over'" [opened]="false"
+    <mat-sidenav
+        [mode]="'over'"
+        fixedTopGap="56"
+        [(opened)]="sidebarService.opened"
         [fixedInViewport]="true">
 
         <app-sidebar></app-sidebar>
 
     </mat-sidenav>
     <mat-sidenav-content>
-        
-        <mat-toolbar color="primary">
-            <mat-icon (click)="snav.toggle()">menu</mat-icon>
-            <h1 style="margin-left: 8px;">Trollii</h1>
-        </mat-toolbar>
-
         <router-outlet></router-outlet>
-        
     </mat-sidenav-content>
 </mat-sidenav-container>

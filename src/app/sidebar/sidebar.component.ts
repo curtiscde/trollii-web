@@ -5,7 +5,7 @@ import { List } from '../models/list';
 
 import { AuthService } from '../auth.service';
 import { ListService } from '../list.service';
-
+import { SidebarService } from '../sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,6 +20,7 @@ export class SidebarComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private listService: ListService,
+    private sidebarService: SidebarService,
     private router: Router
   ) { }
 

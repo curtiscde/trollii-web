@@ -40,7 +40,7 @@ import {
   MatTooltipModule,
 } from '@angular/material';
 
-
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
