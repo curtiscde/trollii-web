@@ -7,6 +7,10 @@ export class SidebarService {
 
   opened: boolean;
 
+  toggle(){
+    this.opened = !this.opened;
+  }
+
   close(){
     this.opened = false;
   }
