@@ -9,6 +9,7 @@ import { ListService } from '../list.service';
 import { ItemService } from '../item.service';
 
 import { List } from '../models/list';
+import { Item } from '../models/item';
 
 @Component({
   selector: 'app-list',
@@ -66,6 +67,10 @@ export class ListComponent implements OnInit {
         });
         this.list = data;
       });
+  }
+
+  removeItem(item: Item){
+    console.log(item._id);
   }
 
 }
