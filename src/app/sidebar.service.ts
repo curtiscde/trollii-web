@@ -5,6 +5,10 @@ export class SidebarService {
 
   constructor() { }
 
-  public opened: boolean;
+  opened: boolean;
+
+  close(){
+    this.opened = false;
+  }
 
 }

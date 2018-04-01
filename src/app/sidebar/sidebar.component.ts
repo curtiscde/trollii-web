@@ -43,7 +43,7 @@ export class SidebarComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.sidebarService.opened = false;
+    this.sidebarService.close();
     this.router.navigate(['/login']);
   }
 
