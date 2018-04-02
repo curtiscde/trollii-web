@@ -30,9 +30,8 @@
   </mat-card>
     
   <mat-card *ngFor="let item of list.items">
-    <img mat-card-image src="http://placehold.it/500x50" />
     <mat-card-content fxLayout="row" >
-      <span>{{ item.name }}</span>
+      <span class="name">{{ item.name }}</span>
       <div fxFlex ></div>
       <button mat-button (click)="removeItem(item)">Done</button>
     </mat-card-content>
