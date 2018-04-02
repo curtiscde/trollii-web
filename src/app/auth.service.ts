@@ -6,7 +6,8 @@ import { environment } from '../environments/environment';
 import { tokenNotExpired } from 'angular2-jwt';
 import Auth0Lock from 'auth0-lock';
 
-
+import { ListService } from './list.service';
+import { ListStoreService } from './list-store.service';
 
 @Injectable()
 export class AuthService {
@@ -33,15 +34,19 @@ export class AuthService {
     this.auth0Options
   );
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private listService: ListService,
+    private listStoreService: ListStoreService
+  ) {
     this.lock.on('authenticated', (authResult: any) => {
       this.lock.getUserInfo(authResult.accessToken, (error, profile) => {
         if (error) {
           throw new Error(error);
         }
-    
         localStorage.setItem('token', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
+        this.listService.getLists().subscribe(lists => this.listStoreService.lists = lists);
         this.router.navigate(['/']);
       });
     });

@@ -107,6 +107,7 @@ import { ListStoreService } from './list-store.service';
   ],
   providers: [
     AuthService,
+    ListService,
     ListStoreService
   ],
   bootstrap: [AppComponent]
