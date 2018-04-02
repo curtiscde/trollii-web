@@ -11,8 +11,7 @@ import { SidebarService } from '../sidebar.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
-  providers: [ListService]
+  styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
 

@@ -10,8 +10,7 @@ import { List } from '../models/list';
 @Component({
   selector: 'app-list-add',
   templateUrl: './list-add.component.html',
-  styleUrls: ['./list-add.component.css'],
-  providers: [ListService]
+  styleUrls: ['./list-add.component.css']
 })
 export class ListAddComponent implements OnInit {
 
