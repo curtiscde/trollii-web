@@ -5,15 +5,14 @@ import { List } from '../models/list';
 
 import { AuthService } from '../auth.service';
 import { ListService } from '../list.service';
+import { ListStoreService } from '../list-store.service';
 import { SidebarService } from '../sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
-  providers: [
-    ListService
-  ]
+  providers: [ListService]
 })
 export class SidebarComponent implements OnInit {
 
@@ -21,7 +20,8 @@ export class SidebarComponent implements OnInit {
     public authService: AuthService,
     private listService: ListService,
     private sidebarService: SidebarService,
-    private router: Router
+    private router: Router,
+    private listStoreService: ListStoreService,
   ) { }
 
   ngOnInit() {
@@ -34,11 +34,13 @@ export class SidebarComponent implements OnInit {
     return this.authService.isAuthenticated();
   }
 
-  lists: List[];
+  lists(){
+   return this.listStoreService.lists; 
+  };
 
   getLists() {
     this.listService.getLists()
-      .subscribe(data => this.lists = data);
+      .subscribe(data => this.listStoreService.lists = data);
   }
 
   logout() {

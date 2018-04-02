@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { MatSnackBar } from '@angular/material';
 
 import { ListService } from '../list.service';
+import { ListStoreService } from '../list-store.service';
 
 import { List } from '../models/list';
 
@@ -17,7 +18,8 @@ export class ListAddComponent implements OnInit {
   constructor(
     private listService: ListService,
     private router: Router,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private listStoreService: ListStoreService
   ) { }
 
   ngOnInit() {
@@ -33,6 +35,7 @@ export class ListAddComponent implements OnInit {
       });
       this.list = lists.find(l => l.name === name);
       this.router.navigate(['/list', this.list._id]);
+      this.listStoreService.lists = lists;
     });
   }
 

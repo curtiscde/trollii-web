@@ -5,3 +5,8 @@
 mat-card{
     margin: 12px 6px;
 }
+
+.name{
+    font-size: 1.2em;
+    padding-top: 8px;
+}

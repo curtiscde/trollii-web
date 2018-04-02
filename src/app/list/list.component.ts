@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material';
 
 import { AuthService } from '../auth.service';
 import { ListService } from '../list.service';
+import { ListStoreService } from '../list-store.service';
 import { ItemService } from '../item.service';
 import { SidebarService } from '../sidebar.service';
 
@@ -28,6 +29,7 @@ export class ListComponent implements OnInit {
     private router: Router,
     public snackBar: MatSnackBar,
     private listService: ListService,
+    private listStoreService: ListStoreService,
     private itemService: ItemService,
     private sidebarService: SidebarService    
   ) { }
@@ -53,10 +55,11 @@ export class ListComponent implements OnInit {
 
   removeList() {
     this.listService.deleteList(this.list)
-      .subscribe(data => {
+      .subscribe(lists => {
         this.snackBar.open(`List "${this.list.name}" deleted`, '', {
           duration: 1000
         });
+        this.listStoreService.lists = lists;
         this.router.navigate(['']);
       });
   }
