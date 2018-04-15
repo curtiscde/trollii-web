@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 
 import { AuthService } from '../auth.service';
+import { GoogleAnalyticsService } from '../google-analytics.service';
 import { ListService } from '../list.service';
 import { ListStoreService } from '../list-store.service';
 import { ItemService } from '../item.service';
@@ -18,6 +19,7 @@ import { Item } from '../models/item';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
   providers: [
+    GoogleAnalyticsService,
     ListService,
     ItemService
   ]
@@ -28,6 +30,7 @@ export class ListComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public snackBar: MatSnackBar,
+    private googleAnalyticsService: GoogleAnalyticsService,
     private listService: ListService,
     private listStoreService: ListStoreService,
     private itemService: ItemService,
@@ -70,6 +73,7 @@ export class ListComponent implements OnInit {
         this.snackBar.open(`Item "${name}" added`, '', {
           duration: 1000
         });
+        this.googleAnalyticsService.emitEvent('Item', 'Add');
         this.list = data;
       });
   }
@@ -80,6 +84,7 @@ export class ListComponent implements OnInit {
         this.snackBar.open(`Item "${item.name}" removed`, '', {
           duration: 1000
         });
+        this.googleAnalyticsService.emitEvent('Item', 'Remove');
         this.list = list;
       });
   }
