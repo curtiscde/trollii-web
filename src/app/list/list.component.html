@@ -19,13 +19,15 @@
       
     </mat-toolbar>
     </mat-card-title>
-    <mat-card-content>
+    <mat-card-content fxLayout="row">
       <mat-form-field>
-          <input #itemName matInput placeholder="Enter Item" (keyup.enter)="addItem(itemName.value); itemName.value=''; itemName.focus();">
+        <input #itemName matInput placeholder="Enter Item" (keyup.enter)="addItem(itemName.value); itemName.value=''; itemName.focus();">
       </mat-form-field>
+      <div fxFlex ></div>
+      <button mat-raised-button (click)="addItem(itemName.value); itemName.value=''; itemName.focus();">Add Item</button>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="addItem(itemName.value); itemName.value=''; itemName.focus();">Add Item</button>
+      
     </mat-card-actions>
   </mat-card>
     
