@@ -6,6 +6,7 @@
 export const environment = {
   production: false,
   serviceUrl: 'http://localhost:8080',
+  googleAnalyticsKey: 'UA-116772216-1',
   auth0: {
     domain: 'curt.auth0.com',
     clientId: '1fe4r254Q8wnuPclBDFi6iGBNGYLNT2Z',
