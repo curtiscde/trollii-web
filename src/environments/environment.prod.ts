@@ -1,10 +1,10 @@
 export const environment = {
   production: true,
-  serviceUrl: '',
+  serviceUrl: 'https://trollii-prod.herokuapp.com/',
   auth0: {
-    domain: 'your-awesome-domain.auth0.com',
-    clientId: 'XXXXXXXXXXXXXXXXXXXXXXXXXXX',
-    callbackURL: 'http://localhost:4200/login',
+    domain: 'curt.auth0.com',
+    clientId: 'OUaEBHkqGtDklsNqkheqVCxRhWXjBreF',
+    callbackURL: 'https://trollii.netlify.com/login',
     audience: 'https://trollii.com/'
   }
 };
