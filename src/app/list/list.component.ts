@@ -62,6 +62,7 @@ export class ListComponent implements OnInit {
         this.snackBar.open(`List "${this.list.name}" deleted`, '', {
           duration: 1000
         });
+        this.googleAnalyticsService.emitEvent('List', 'Remove');
         this.listStoreService.lists = lists;
         this.router.navigate(['']);
       });
