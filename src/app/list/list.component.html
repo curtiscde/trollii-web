@@ -24,7 +24,7 @@
         <input #itemName matInput placeholder="Enter Item" (keyup.enter)="addItem(itemName.value); itemName.value=''; itemName.focus();">
       </mat-form-field>
       <div fxFlex ></div>
-      <button mat-raised-button (click)="addItem(itemName.value); itemName.value=''; itemName.focus();">Add Item</button>
+      <button mat-raised-button class="mat-accent" (click)="addItem(itemName.value); itemName.value=''; itemName.focus();"><mat-icon matListIcon>add</mat-icon> Add Item</button>
     </mat-card-content>
     <mat-card-actions>
       
