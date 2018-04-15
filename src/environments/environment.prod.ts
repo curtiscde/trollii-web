@@ -5,7 +5,7 @@ export const environment = {
   auth0: {
     domain: 'curt.auth0.com',
     clientId: 'OUaEBHkqGtDklsNqkheqVCxRhWXjBreF',
-    callbackURL: 'https://trollii.netlify.com/login',
+    callbackURL: 'https://app.trollii.com/login',
     audience: 'https://trollii.com/'
   }
 };
