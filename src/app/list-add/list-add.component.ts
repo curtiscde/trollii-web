@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { MatSnackBar } from '@angular/material';
 
+import { GoogleAnalyticsService } from '../google-analytics.service';
 import { ListService } from '../list.service';
 import { ListStoreService } from '../list-store.service';
 
@@ -18,6 +19,7 @@ export class ListAddComponent implements OnInit {
     private listService: ListService,
     private router: Router,
     public snackBar: MatSnackBar,
+    private googleAnalyticsService: GoogleAnalyticsService,
     private listStoreService: ListStoreService
   ) { }
 
@@ -32,6 +34,7 @@ export class ListAddComponent implements OnInit {
       this.snackBar.open(`List "${name}" added`, '', {
         duration: 1000
       });
+      this.googleAnalyticsService.emitEvent('List', 'Add');
       this.list = lists.find(l => l.name === name);
       this.router.navigate(['/list', this.list._id]);
       this.listStoreService.lists = lists;
