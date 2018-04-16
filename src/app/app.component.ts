@@ -25,6 +25,7 @@ export class AppComponent {
     public sidebarService: SidebarService
   ) {
     this.appendGaTrackingCode();
+    this.googleAnalyticsService.initPageViewTracking();
   }
   
   ngOnInit() {

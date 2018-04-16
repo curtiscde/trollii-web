@@ -5,11 +5,13 @@ declare var ga: Function;
 @Injectable()
 export class GoogleAnalyticsService {
 
-  constructor(public router: Router) {
+  constructor(public router: Router) {}
+
+  public initPageViewTracking(){
     this.router.events.subscribe(event => {
       try {
         if (typeof ga === 'function') {
-          if (event instanceof NavigationEnd) {
+          if (event instanceof NavigationEnd && !event.urlAfterRedirects.startsWith('/login-callback')) {
             ga('set', 'page', event.urlAfterRedirects);
             ga('send', 'pageview');
           }
@@ -18,7 +20,6 @@ export class GoogleAnalyticsService {
         console.log(e);
       }
     });
-
   }
 
 
