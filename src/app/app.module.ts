@@ -54,6 +54,7 @@ import { ListAddComponent } from './list-add/list-add.component';
 import { ListComponent } from './list/list.component';
 import { ListService } from './list.service';
 import { ListStoreService } from './list-store.service';
+import { AuthGuardService } from './auth-guard.service';
 
 
 @NgModule({
@@ -107,6 +108,7 @@ import { ListStoreService } from './list-store.service';
   ],
   providers: [
     AuthService,
+    AuthGuardService,
     ListService,
     ListStoreService
   ],
