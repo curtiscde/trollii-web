@@ -21,20 +21,16 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (!this.authService.isAuthenticated()){
-      this.router.navigate(['/login']);
-    }
-    else {
-      this.getFirstList(() => {
-        if (this.list){
-          this.router.navigate(['/list', this.list._id]);
-        }
-        else{
-          this.router.navigate(['/addlist']);
-        }
-      });
+
+    this.getFirstList(() => {
+      if (this.list){
+        this.router.navigate(['/list', this.list._id]);
+      }
+      else{
+        this.router.navigate(['/addlist']);
+      }
+    });
       
-    }
   }
 
   list: List;

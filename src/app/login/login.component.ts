@@ -20,9 +20,6 @@ export class LoginComponent implements OnInit {
     if (this.authService.isAuthenticated()){
       this.router.navigate(['/']);
     }
-    else {
-      // this.authService.login();
-    }
 
   }
 
