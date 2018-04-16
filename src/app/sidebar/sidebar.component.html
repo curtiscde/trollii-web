@@ -1,3 +1,6 @@
+<div class="logo">
+    <img src="assets/images/logo.png" alt="Trollii" />
+</div>
 <mat-nav-list *ngIf="isAuthenticated()">
     <a mat-list-item *ngFor="let list of lists()" [routerLink]="['list', list._id ]"><mat-icon matListIcon>list</mat-icon> {{ list.name }}</a>
     <a mat-list-item routerLink="/addlist"><mat-icon matListIcon>add</mat-icon> Add New List</a>
