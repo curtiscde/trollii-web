@@ -13,7 +13,7 @@ import { ListStoreService } from './list-store.service';
 export class AuthService {
   auth0Options = {
     theme: {
-      logo: 'http://placehold.it/200x200',
+      logo: `${environment.webUrl}/assets/images/icon.png`,
       primaryColor: '#3f51b5'
     },
     auth: {
@@ -26,6 +26,9 @@ export class AuthService {
     },
     autoclose: true,
     oidcConformant: true,
+    languageDictionary:{
+      title: 'Trollii'
+    }
   };
 
   lock = new Auth0Lock(
