@@ -5,12 +5,14 @@ import { AuthGuardService } from './auth-guard.service';
 
 import { HomeComponent }      from './home/home.component';
 import { LoginComponent }  from './login/login.component';
+import { LoginCallbackComponent }  from './login-callback/login-callback.component';
 import { ListComponent }  from './list/list.component';
 import { ListAddComponent }  from './list-add/list-add.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
+  { path: 'login-callback', component: LoginCallbackComponent },
   { path: 'list/:id', component: ListComponent, canActivate: [AuthGuardService] },
   { path: 'addlist', component: ListAddComponent, canActivate: [AuthGuardService] }
 ];

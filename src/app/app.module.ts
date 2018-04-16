@@ -55,6 +55,7 @@ import { ListComponent } from './list/list.component';
 import { ListService } from './list.service';
 import { ListStoreService } from './list-store.service';
 import { AuthGuardService } from './auth-guard.service';
+import { LoginCallbackComponent } from './login-callback/login-callback.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { AuthGuardService } from './auth-guard.service';
     HomeComponent,
     LoginComponent,
     ListAddComponent,
-    ListComponent
+    ListComponent,
+    LoginCallbackComponent
   ],
   imports: [
     BrowserModule,
