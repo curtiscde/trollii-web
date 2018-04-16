@@ -46,8 +46,19 @@ export class AuthService {
         }
         localStorage.setItem('token', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
-        this.listService.getLists().subscribe(lists => this.listStoreService.lists = lists);
-        this.router.navigate(['/']);
+        this.listService.getLists().subscribe(lists => {
+          
+          this.listStoreService.lists = lists;
+
+          if (this.listStoreService.lists.length){
+            let firstListId = this.listStoreService.lists[0]._id;
+            this.router.navigate(['/list', firstListId]);
+          }
+          else{
+            this.router.navigate(['/addlist']);
+          }
+
+        });
       });
     });
 
