@@ -62,11 +62,12 @@ export class ListComponent implements OnInit {
   inviteMembers(){
     let dialogRef = this.dialog.open(ListInviteComponent, {
       width: '250px',
-      data: { listid: this.list._id }
+      data: { listid: this.list._id, memberemail: '' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      console.log('result', result);
       // this.animal = result;
     });
   }

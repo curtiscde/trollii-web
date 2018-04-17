@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { FormsModule } from '@angular/forms';
 
 import {
   MatAutocompleteModule,
@@ -75,6 +76,7 @@ import { ListInviteComponent } from './list-invite/list-invite.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FlexLayoutModule,
+    FormsModule,
 
     MatAutocompleteModule,
     MatButtonModule,
@@ -108,6 +110,7 @@ import { ListInviteComponent } from './list-invite/list-invite.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+
     AppRoutingModule
   ],
   providers: [
