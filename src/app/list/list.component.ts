@@ -74,6 +74,7 @@ export class ListComponent implements OnInit {
         this.listInviteService.sendInvite(this.list._id, memberEmail)
           .subscribe(data => {
             this.snackBar.open(`Invite sent to ${memberEmail}`, '', { duration: 1000 });
+            this.googleAnalyticsService.emitEvent('List Invite', 'Sent');
           });
       }
     });
