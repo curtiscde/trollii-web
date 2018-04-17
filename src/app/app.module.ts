@@ -56,6 +56,7 @@ import { ListService } from './list.service';
 import { ListStoreService } from './list-store.service';
 import { AuthGuardService } from './auth-guard.service';
 import { LoginCallbackComponent } from './login-callback/login-callback.component';
+import { ListInviteComponent } from './list-invite/list-invite.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { LoginCallbackComponent } from './login-callback/login-callback.componen
     LoginComponent,
     ListAddComponent,
     ListComponent,
-    LoginCallbackComponent
+    LoginCallbackComponent,
+    ListInviteComponent
   ],
   imports: [
     BrowserModule,
@@ -114,6 +116,9 @@ import { LoginCallbackComponent } from './login-callback/login-callback.componen
     ListService,
     ListStoreService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ListInviteComponent
+  ]
 })
 export class AppModule { }

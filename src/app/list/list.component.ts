@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { ActivatedRoute } from '@angular/router';
 
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 
 import { AuthService } from '../auth.service';
 import { GoogleAnalyticsService } from '../google-analytics.service';
@@ -10,6 +10,8 @@ import { ListService } from '../list.service';
 import { ListStoreService } from '../list-store.service';
 import { ItemService } from '../item.service';
 import { SidebarService } from '../sidebar.service';
+
+import { ListInviteComponent } from '../list-invite/list-invite.component';
 
 import { List } from '../models/list';
 import { Item } from '../models/item';
@@ -30,6 +32,7 @@ export class ListComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public snackBar: MatSnackBar,
+    public dialog: MatDialog,
     private googleAnalyticsService: GoogleAnalyticsService,
     private listService: ListService,
     private listStoreService: ListStoreService,
@@ -56,6 +59,18 @@ export class ListComponent implements OnInit {
       })
   }
 
+  inviteMembers(){
+    let dialogRef = this.dialog.open(ListInviteComponent, {
+      width: '250px',
+      data: { listid: this.list._id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
+  }
+
   removeList() {
     this.listService.deleteList(this.list)
       .subscribe(lists => {
@@ -68,6 +83,7 @@ export class ListComponent implements OnInit {
       });
   }
 
+  //Item Methods
   addItem(name: string){
     this.itemService.addItem(this.list._id, name)
       .subscribe(data => {
