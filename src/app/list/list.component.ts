@@ -8,6 +8,7 @@ import { AuthService } from '../auth.service';
 import { GoogleAnalyticsService } from '../google-analytics.service';
 import { ListService } from '../list.service';
 import { ListStoreService } from '../list-store.service';
+import { ListInviteService } from '../services/list-invite.service';
 import { ItemService } from '../item.service';
 import { SidebarService } from '../sidebar.service';
 
@@ -23,6 +24,7 @@ import { Item } from '../models/item';
   providers: [
     GoogleAnalyticsService,
     ListService,
+    ListInviteService,
     ItemService
   ]
 })
@@ -36,6 +38,7 @@ export class ListComponent implements OnInit {
     private googleAnalyticsService: GoogleAnalyticsService,
     private listService: ListService,
     private listStoreService: ListStoreService,
+    private listInviteService: ListInviteService,
     private itemService: ItemService,
     private sidebarService: SidebarService    
   ) { }
@@ -60,15 +63,15 @@ export class ListComponent implements OnInit {
   }
 
   inviteMembers(){
-    let dialogRef = this.dialog.open(ListInviteComponent, {
+    let inviteMemberDialog = this.dialog.open(ListInviteComponent, {
       width: '250px',
       data: { listid: this.list._id, memberemail: '' }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log('result', result);
-      // this.animal = result;
+    inviteMemberDialog.afterClosed().subscribe(memberEmail => {
+      if (memberEmail){
+        this.listInviteService.sendInvite(this.list._id, memberEmail);
+      }
     });
   }
 
