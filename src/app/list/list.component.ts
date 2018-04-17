@@ -70,7 +70,11 @@ export class ListComponent implements OnInit {
 
     inviteMemberDialog.afterClosed().subscribe(memberEmail => {
       if (memberEmail){
-        this.listInviteService.sendInvite(this.list._id, memberEmail);
+        this.snackBar.open(`Sending invite...`, '', { duration: 1000 });
+        this.listInviteService.sendInvite(this.list._id, memberEmail)
+          .subscribe(data => {
+            this.snackBar.open(`Invite sent to ${memberEmail}`, '', { duration: 1000 });
+          });
       }
     });
   }
@@ -91,9 +95,7 @@ export class ListComponent implements OnInit {
   addItem(name: string){
     this.itemService.addItem(this.list._id, name)
       .subscribe(data => {
-        this.snackBar.open(`Item "${name}" added`, '', {
-          duration: 1000
-        });
+        this.snackBar.open(`Item "${name}" added`, '', { duration: 1000 });
         this.googleAnalyticsService.emitEvent('Item', 'Add');
         this.list = data;
       });
@@ -102,9 +104,7 @@ export class ListComponent implements OnInit {
   removeItem(item: Item){
     this.itemService.removeItem(this.list._id, item._id)
       .subscribe(list => {
-        this.snackBar.open(`Item "${item.name}" removed`, '', {
-          duration: 1000
-        });
+        this.snackBar.open(`Item "${item.name}" removed`, '', { duration: 1000 });
         this.googleAnalyticsService.emitEvent('Item', 'Remove');
         this.list = list;
       });
