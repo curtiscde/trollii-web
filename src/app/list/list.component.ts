@@ -70,10 +70,10 @@ export class ListComponent implements OnInit {
 
     inviteMemberDialog.afterClosed().subscribe(memberEmail => {
       if (memberEmail){
-        this.snackBar.open(`Sending invite...`, '', { duration: 1000 });
+        this.snackBar.open(`Sending invite...`, '', { duration: 2000 });
         this.listInviteService.sendInvite(this.list._id, memberEmail)
           .subscribe(data => {
-            this.snackBar.open(`Invite sent to ${memberEmail}`, '', { duration: 1000 });
+            this.snackBar.open(`Invite sent to ${memberEmail}`, '', { duration: 2000 });
             this.googleAnalyticsService.emitEvent('List Invite', 'Sent');
           });
       }
