@@ -29,7 +29,7 @@ export class ListInviteAcceptEntryComponent implements OnInit {
 
   redirect(){
     if (this.authService.isAuthenticated()){
-      this.router.navigate(['/list/invite']);
+      this.router.navigate(['/l/invite']);
     }
     else {
       this.router.navigate(['/login']);

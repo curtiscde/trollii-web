@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
+import { MatSnackBar } from '@angular/material';
+
+import { GoogleAnalyticsService } from '../../google-analytics.service';
 
 @Component({
   selector: 'app-list-invite-accept',
@@ -7,17 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListInviteAcceptComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    public snackBar: MatSnackBar,
+    private googleAnalyticsService: GoogleAnalyticsService
+  ) { }
 
   ngOnInit() {
   }
 
   public acceptInvite(){
-    console.log('accept invite..');
+    this.snackBar.open(`List invite accepted`, '', { duration: 1000 });
+    this.googleAnalyticsService.emitEvent('List Invite', 'Accepted');
   }
 
   public declineInvite(){
-    console.log('decline invite..');
+    localStorage.removeItem('invite_token');
+    this.snackBar.open(`List invite declined`, '', { duration: 1000 });
+    this.googleAnalyticsService.emitEvent('List Invite', 'Declined');
+    this.router.navigate(['/']);
   }
 
 }
