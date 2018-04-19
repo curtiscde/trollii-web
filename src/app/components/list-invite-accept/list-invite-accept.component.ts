@@ -23,6 +23,9 @@ export class ListInviteAcceptComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(!localStorage.getItem('invite_token')){
+      this.router.navigate(['/']);
+    }
   }
 
   public acceptInvite(){
