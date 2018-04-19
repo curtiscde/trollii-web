@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   redirect(){
 
     if(localStorage.getItem('invite_token')){
-      this.router.navigate(['/list/invite']);
+      this.router.navigate(['/l/invite']);
     }
     else{
 

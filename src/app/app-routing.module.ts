@@ -21,7 +21,7 @@ const routes: Routes = [
 
   { path: 'list/:id', component: ListComponent, canActivate: [AuthGuardService] },
   { path: 'addlist', component: ListAddComponent, canActivate: [AuthGuardService] },
-  { path: 'list/invite', component: ListInviteAcceptComponent, canActivate: [AuthGuardService] }
+  { path: 'l/invite', component: ListInviteAcceptComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({

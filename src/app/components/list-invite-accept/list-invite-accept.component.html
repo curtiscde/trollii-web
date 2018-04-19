@@ -1,3 +1,9 @@
-<p>
-  list-invite-accept works!
-</p>
+<mat-card>
+  <mat-card-title>
+    List Invitation
+  </mat-card-title>
+  <mat-card-actions>
+    <button mat-raised-button class="mat-accent" (click)="acceptInvite();">Accept</button>
+    <button mat-raised-button class="mat-danger warn" (click)="declineInvite();">Decline</button>
+  </mat-card-actions>
+</mat-card>

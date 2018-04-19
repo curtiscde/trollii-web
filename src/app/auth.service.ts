@@ -55,7 +55,7 @@ export class AuthService {
           this.listStoreService.lists = lists;
 
           if(localStorage.getItem('invite_token')){
-            this.router.navigate(['/list/invite']);
+            this.router.navigate(['/l/invite']);
           }
           else if (this.listStoreService.lists.length){
             let firstListId = this.listStoreService.lists[0]._id;

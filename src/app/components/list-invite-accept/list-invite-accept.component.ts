@@ -12,4 +12,12 @@ export class ListInviteAcceptComponent implements OnInit {
   ngOnInit() {
   }
 
+  public acceptInvite(){
+    console.log('accept invite..');
+  }
+
+  public declineInvite(){
+    console.log('decline invite..');
+  }
+
 }
