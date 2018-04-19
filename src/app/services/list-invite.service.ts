@@ -25,4 +25,11 @@ export class ListInviteService {
     }, this.getHttpOptions());
   }
 
+  acceptInvite(inviteid: String, email: String){
+    return this.http.post<any>(`${environment.serviceUrl}/api/list-invite/accept`, {
+      inviteid: inviteid,
+      email: email
+    }, this.getHttpOptions());
+  }
+
 }
