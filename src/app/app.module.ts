@@ -59,6 +59,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { LoginCallbackComponent } from './login-callback/login-callback.component';
 import { ListInviteComponent } from './list-invite/list-invite.component';
 import { ListInviteAcceptEntryComponent } from './components/list-invite-accept-entry/list-invite-accept-entry.component';
+import { ListInviteAcceptComponent } from './components/list-invite-accept/list-invite-accept.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { ListInviteAcceptEntryComponent } from './components/list-invite-accept-
     ListComponent,
     LoginCallbackComponent,
     ListInviteComponent,
-    ListInviteAcceptEntryComponent
+    ListInviteAcceptEntryComponent,
+    ListInviteAcceptComponent
   ],
   imports: [
     BrowserModule,

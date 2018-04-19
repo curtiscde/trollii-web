@@ -8,13 +8,20 @@ import { LoginComponent }  from './login/login.component';
 import { LoginCallbackComponent }  from './login-callback/login-callback.component';
 import { ListComponent }  from './list/list.component';
 import { ListAddComponent }  from './list-add/list-add.component';
+import { ListInviteAcceptEntryComponent } from './components/list-invite-accept-entry/list-invite-accept-entry.component';
+import { ListInviteAcceptComponent } from './components/list-invite-accept/list-invite-accept.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
+
   { path: 'login', component: LoginComponent },
   { path: 'login-callback', component: LoginCallbackComponent },
+  { path: 'list/invite/entry/:inviteid', component: ListInviteAcceptEntryComponent  },
+
+  { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
+
   { path: 'list/:id', component: ListComponent, canActivate: [AuthGuardService] },
-  { path: 'addlist', component: ListAddComponent, canActivate: [AuthGuardService] }
+  { path: 'addlist', component: ListAddComponent, canActivate: [AuthGuardService] },
+  { path: 'list/invite/:inviteid', component: ListInviteAcceptComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({
