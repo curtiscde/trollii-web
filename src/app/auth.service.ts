@@ -49,11 +49,15 @@ export class AuthService {
         }
         localStorage.setItem('token', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
+
         this.listService.getLists().subscribe(lists => {
           
           this.listStoreService.lists = lists;
 
-          if (this.listStoreService.lists.length){
+          if(localStorage.getItem('invite_token')){
+            this.router.navigate(['/list/invite']);
+          }
+          else if (this.listStoreService.lists.length){
             let firstListId = this.listStoreService.lists[0]._id;
             this.router.navigate(['/list', firstListId]);
           }
@@ -62,6 +66,9 @@ export class AuthService {
           }
 
         });
+
+
+
       });
     });
 

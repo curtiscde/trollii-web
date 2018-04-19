@@ -21,19 +21,29 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
-    this.getFirstList(() => {
-      if (this.list){
-        this.router.navigate(['/list', this.list._id]);
-      }
-      else{
-        this.router.navigate(['/addlist']);
-      }
-    });
-      
+    this.redirect();
   }
 
   list: List;
+
+  redirect(){
+
+    if(localStorage.getItem('invite_token')){
+      this.router.navigate(['/list/invite']);
+    }
+    else{
+
+      this.getFirstList(() => {
+        if (this.list){
+          this.router.navigate(['/list', this.list._id]);
+        }
+        else{
+          this.router.navigate(['/addlist']);
+        }
+      });
+
+    } 
+  }
 
   getFirstList(cb) {
     this.listService.getLists()
