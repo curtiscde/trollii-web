@@ -101,6 +101,8 @@ export class ListComponent implements OnInit {
         });
         this.googleAnalyticsService.emitEvent('List', 'Leave');
         this.router.navigate(['']);
+        this.listService.getLists()
+          .subscribe(data => this.listStoreService.lists = data);
       })
   }
 

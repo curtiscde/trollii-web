@@ -4,6 +4,8 @@ import { MatSnackBar } from '@angular/material';
 
 import { GoogleAnalyticsService } from '../../google-analytics.service';
 import { ListInviteService } from '../../services/list-invite.service';
+import { ListService } from '../../list.service';
+import { ListStoreService } from '../../list-store.service';
 
 @Component({
   selector: 'app-list-invite-accept',
@@ -19,7 +21,9 @@ export class ListInviteAcceptComponent implements OnInit {
     private router: Router,
     public snackBar: MatSnackBar,
     private googleAnalyticsService: GoogleAnalyticsService,
-    private listInviteService: ListInviteService
+    private listInviteService: ListInviteService,
+    private listService: ListService,
+    private listStoreService: ListStoreService
   ) { }
 
   ngOnInit() {
@@ -38,6 +42,9 @@ export class ListInviteAcceptComponent implements OnInit {
       this.snackBar.open(`List invite accepted`, '', { duration: 1000 });
       this.googleAnalyticsService.emitEvent('List', 'Invite Accepted');
       this.removeInviteToken();
+
+      this.listService.getLists()
+          .subscribe(data => this.listStoreService.lists = data);
 
       this.router.navigate(['/list', data.listid]);
     });
