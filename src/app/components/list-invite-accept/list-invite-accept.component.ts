@@ -36,7 +36,7 @@ export class ListInviteAcceptComponent implements OnInit {
     this.listInviteService.acceptInvite(inviteid, email).subscribe(data => {
 
       this.snackBar.open(`List invite accepted`, '', { duration: 1000 });
-      this.googleAnalyticsService.emitEvent('List Invite', 'Accepted');
+      this.googleAnalyticsService.emitEvent('List', 'Invite Accepted');
       this.removeInviteToken();
 
       this.router.navigate(['/list', data.listid]);
@@ -47,7 +47,7 @@ export class ListInviteAcceptComponent implements OnInit {
   public declineInvite(){
     this.removeInviteToken();
     this.snackBar.open(`List invite declined`, '', { duration: 1000 });
-    this.googleAnalyticsService.emitEvent('List Invite', 'Declined');
+    this.googleAnalyticsService.emitEvent('List', 'Invite Declined');
     this.router.navigate(['/']);
   }
 
