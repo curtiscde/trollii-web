@@ -111,6 +111,8 @@ export class ListComponent implements OnInit {
         this.snackBar.open(`Item "${name}" added`, '', { duration: 1000 });
         this.googleAnalyticsService.emitEvent('Item', 'Add');
         this.list = data;
+      }, error => {
+        this.googleAnalyticsService.emitEvent('Error', 'Item Add', error.error.error);
       });
   }
 
