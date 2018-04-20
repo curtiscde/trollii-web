@@ -92,6 +92,10 @@ export class ListComponent implements OnInit {
       });
   }
 
+  leaveList() {
+    console.log('leave list');
+  }
+
   //Item Methods
   addItem(name: string){
     this.itemService.addItem(this.list._id, name)
