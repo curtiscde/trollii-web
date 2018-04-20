@@ -11,9 +11,17 @@
           <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="removeList()">
+        <button mat-menu-item (click)="inviteMembers()" *ngIf="list.isowner">
+          <mat-icon>people</mat-icon>
+          <span>Invite Members</span>
+        </button>
+        <button mat-menu-item (click)="removeList()" *ngIf="list.isowner">
           <mat-icon>delete</mat-icon>
-          <span>Remove</span>
+          <span>Remove List</span>
+        </button>
+        <button mat-menu-item (click)="leaveList()" *ngIf="!list.isowner">
+          <mat-icon>delete</mat-icon>
+          <span>Leave List</span>
         </button>
       </mat-menu>
       

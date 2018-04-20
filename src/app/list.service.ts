@@ -36,4 +36,8 @@ export class ListService {
     return this.http.delete<List[]>(`${environment.serviceUrl}/api/list/${list._id}`, this.getHttpOptions());
   }
 
+  leaveList(list: List){
+    return this.http.delete<any>(`${environment.serviceUrl}/api/list/${list._id}/member`, this.getHttpOptions());
+  }
+
 }

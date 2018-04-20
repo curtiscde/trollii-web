@@ -31,9 +31,7 @@ export class ListAddComponent implements OnInit {
 
   add(name: string){
     this.listService.addList(name).subscribe(lists => {
-      this.snackBar.open(`List "${name}" added`, '', {
-        duration: 1000
-      });
+      this.snackBar.open(`List "${name}" added`, '', { duration: 1000 });
       this.googleAnalyticsService.emitEvent('List', 'Add');
       this.list = lists.find(l => l.name === name);
       this.router.navigate(['/list', this.list._id]);

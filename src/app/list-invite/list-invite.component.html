@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Invite Members</h1>
+<div mat-dialog-content>
+  <p>Enter the new member's email address below</p>
+  <mat-form-field>
+      <input #itemName matInput placeholder="Member Email Address" [(ngModel)]="data.memberemail" />
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.memberemail" cdkFocusInitial>Invite</button>
+</div>

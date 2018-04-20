@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { FormsModule } from '@angular/forms';
 
 import {
   MatAutocompleteModule,
@@ -56,6 +57,9 @@ import { ListService } from './list.service';
 import { ListStoreService } from './list-store.service';
 import { AuthGuardService } from './auth-guard.service';
 import { LoginCallbackComponent } from './login-callback/login-callback.component';
+import { ListInviteComponent } from './list-invite/list-invite.component';
+import { ListInviteAcceptEntryComponent } from './components/list-invite-accept-entry/list-invite-accept-entry.component';
+import { ListInviteAcceptComponent } from './components/list-invite-accept/list-invite-accept.component';
 
 
 @NgModule({
@@ -66,13 +70,17 @@ import { LoginCallbackComponent } from './login-callback/login-callback.componen
     LoginComponent,
     ListAddComponent,
     ListComponent,
-    LoginCallbackComponent
+    LoginCallbackComponent,
+    ListInviteComponent,
+    ListInviteAcceptEntryComponent,
+    ListInviteAcceptComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FlexLayoutModule,
+    FormsModule,
 
     MatAutocompleteModule,
     MatButtonModule,
@@ -106,6 +114,7 @@ import { LoginCallbackComponent } from './login-callback/login-callback.componen
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+
     AppRoutingModule
   ],
   providers: [
@@ -114,6 +123,9 @@ import { LoginCallbackComponent } from './login-callback/login-callback.componen
     ListService,
     ListStoreService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ListInviteComponent
+  ]
 })
 export class AppModule { }
