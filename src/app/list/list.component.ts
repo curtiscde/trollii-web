@@ -113,6 +113,9 @@ export class ListComponent implements OnInit {
         this.list = data;
       }, error => {
         this.googleAnalyticsService.emitEvent('Error', 'Item Add', error.error.error);
+
+        let errorMessage = (error.error.code === 3) ? `Item "${name}" already exists` : `Something went wrong`;
+        this.snackBar.open(errorMessage, '', { duration: 1000 });
       });
   }
 
