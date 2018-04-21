@@ -33,6 +33,8 @@ export class ListInviteAcceptComponent implements OnInit {
   }
 
   public acceptInvite(){
+
+    this.snackBar.open(`Accepting Invite...`, '', { duration: 1000 });
     
     let inviteid = localStorage.getItem('invite_token');
     let email = JSON.parse(localStorage.getItem('profile')).email;
@@ -44,7 +46,11 @@ export class ListInviteAcceptComponent implements OnInit {
       this.removeInviteToken();
 
       this.listService.getLists()
-          .subscribe(data => this.listStoreService.lists = data);
+          .subscribe(data => this.listStoreService.lists = data,
+            error => {
+              this.snackBar.open(`Something went wrong`, '', { duration: 1000 });
+              this.googleAnalyticsService.emitEvent('Error', 'Invite Accept');
+            });
 
       this.router.navigate(['/list', data.listid]);
     });
