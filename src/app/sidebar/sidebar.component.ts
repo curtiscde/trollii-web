@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
+import { environment } from '../../environments/environment';
+
 import { List } from '../models/list';
 
 import { AuthService } from '../auth.service';
@@ -24,10 +26,13 @@ export class SidebarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.versionNo = environment.version;
     if (this.isAuthenticated()){
       this.getLists();
     }
   }
+
+  public versionNo: String;
 
   isAuthenticated() {
     return this.authService.isAuthenticated();

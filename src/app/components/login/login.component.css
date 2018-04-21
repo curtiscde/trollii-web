@@ -1,0 +1,13 @@
+mat-card{
+    margin: 12px 6px;
+}
+
+.image{
+    text-align: center;
+    padding:20px 0 60px 0;
+}
+
+button{
+    width:100%;
+    font-size:1.2em;
+}

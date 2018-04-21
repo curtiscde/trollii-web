@@ -4,7 +4,7 @@ import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { AuthGuardService } from './auth-guard.service';
 
 import { HomeComponent }      from './home/home.component';
-import { LoginComponent }  from './login/login.component';
+import { LoginComponent }  from './components/login/login.component';
 import { LoginCallbackComponent }  from './login-callback/login-callback.component';
 import { ListComponent }  from './list/list.component';
 import { ListAddComponent }  from './list-add/list-add.component';
