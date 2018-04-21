@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  version: require('../../package.json').version,
   webUrl: 'https://app.trollii.com',
   serviceUrl: 'https://trollii-prod.herokuapp.com',
   googleAnalyticsKey: 'UA-116772216-2',

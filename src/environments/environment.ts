@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
+  version: require('../../package.json').version,
   webUrl: 'http://localhost:4200',
   serviceUrl: 'http://localhost:8080',
   googleAnalyticsKey: 'UA-116772216-1',

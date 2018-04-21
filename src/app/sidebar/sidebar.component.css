@@ -2,3 +2,13 @@
     margin:20px auto;
     display: block;
 }
+
+mat-nav-list{
+    padding-bottom: 40px;
+}
+
+.copyright-version{
+    padding:20px;
+    font-size: 0.6em;
+    bottom:0;
+}
