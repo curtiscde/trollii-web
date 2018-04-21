@@ -50,7 +50,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AuthService } from './auth.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { ListAddComponent } from './list-add/list-add.component';
 import { ListComponent } from './list/list.component';
 import { ListService } from './list.service';
