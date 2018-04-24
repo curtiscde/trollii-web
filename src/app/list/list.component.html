@@ -41,12 +41,20 @@
       </form>
     </mat-card-content>
   </mat-card>
+
+  <mat-divider></mat-divider>
     
   <mat-card *ngFor="let item of list.items">
     <mat-card-content fxLayout="row" >
       <span class="name">{{ item.name }}</span>
       <div fxFlex ></div>
       <button mat-button (click)="removeItem(item)">Done</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="!list.items.length">
+    <mat-card-content>
+      No items
     </mat-card-content>
   </mat-card>
 
