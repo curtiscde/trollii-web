@@ -61,6 +61,7 @@ import { LoginCallbackComponent } from './login-callback/login-callback.componen
 import { ListInviteComponent } from './list-invite/list-invite.component';
 import { ListInviteAcceptEntryComponent } from './components/list-invite-accept-entry/list-invite-accept-entry.component';
 import { ListInviteAcceptComponent } from './components/list-invite-accept/list-invite-accept.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { ListInviteAcceptComponent } from './components/list-invite-accept/list-
     LoginCallbackComponent,
     ListInviteComponent,
     ListInviteAcceptEntryComponent,
-    ListInviteAcceptComponent
+    ListInviteAcceptComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,

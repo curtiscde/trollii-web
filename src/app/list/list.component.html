@@ -34,9 +34,6 @@
       <div fxFlex ></div>
       <button mat-raised-button class="mat-accent" (click)="addItem(itemName.value); itemName.value=''; itemName.focus();"><mat-icon matListIcon>add</mat-icon> Add Item</button>
     </mat-card-content>
-    <mat-card-actions>
-      
-    </mat-card-actions>
   </mat-card>
     
   <mat-card *ngFor="let item of list.items">
