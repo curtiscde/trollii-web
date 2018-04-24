@@ -29,11 +29,11 @@
 
     </mat-card-title>
     <mat-card-content fxLayout="row">
-      <mat-form-field>
+      <mat-form-field fxFlex>
         <input #itemName matInput placeholder="Enter Item" (keyup.enter)="addItem(itemName.value); itemName.value=''; itemName.focus();">
       </mat-form-field>
-      <div fxFlex ></div>
-      <button mat-raised-button class="mat-accent" (click)="addItem(itemName.value); itemName.value=''; itemName.focus();"><mat-icon matListIcon>add</mat-icon> Add Item</button>
+      <div fxFlex="5%"></div>
+      <button fxFlex="120px" mat-raised-button class="mat-accent" (click)="addItem(itemName.value); itemName.value=''; itemName.focus();"><mat-icon matListIcon>add</mat-icon> Add Item</button>
     </mat-card-content>
   </mat-card>
     
