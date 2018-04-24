@@ -25,20 +25,19 @@
     </mat-toolbar>
 
   <mat-card>
-    <mat-card-title>
-
-    </mat-card-title>
     <mat-card-content>
-      <form #formCtrl="ngForm" fxLayout="row">
+      <form #formCtrl="ngForm" fxLayout="row" class="additem">
         <mat-form-field fxFlex>
           <input #itemNameId matInput placeholder="Enter Item" required [(ngModel)]="itemName" name="itemName">
         </mat-form-field>
         <div fxFlex="5%"></div>
-        <button fxFlex="120px" mat-raised-button class="mat-accent"
-                (click)="addItem(itemName); itemName=''; itemNameId.focus();"
-                [disabled]="formCtrl.form.invalid">
-          <mat-icon matListIcon>add</mat-icon> Add Item
-        </button>
+        <div fxFlex="98px">
+          <button mat-raised-button class="mat-accent"
+                  (click)="addItem(itemName); itemName=''; itemNameId.focus();"
+                  [disabled]="formCtrl.form.invalid">
+            <mat-icon matListIcon>add</mat-icon> Add
+          </button>
+        </div>
       </form>
     </mat-card-content>
   </mat-card>
