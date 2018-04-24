@@ -6,8 +6,7 @@ import { environment } from '../environments/environment';
 import { tokenNotExpired } from 'angular2-jwt';
 import Auth0Lock from 'auth0-lock';
 
-import { ListService } from './list.service';
-import { ListStoreService } from './list-store.service';
+import { DefaultRedirectService } from './services/default-redirect.service';
 
 @Injectable()
 export class AuthService {
@@ -39,8 +38,7 @@ export class AuthService {
 
   constructor(
     private router: Router,
-    private listService: ListService,
-    private listStoreService: ListStoreService
+    private defaultRedirectService: DefaultRedirectService
   ) {
     this.lock.on('authenticated', (authResult: any) => {
       this.lock.getUserInfo(authResult.accessToken, (error, profile) => {
@@ -50,24 +48,7 @@ export class AuthService {
         localStorage.setItem('token', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
 
-        this.listService.getLists().subscribe(lists => {
-          
-          this.listStoreService.lists = lists;
-
-          if(localStorage.getItem('invite_token')){
-            this.router.navigate(['/l/invite']);
-          }
-          else if (this.listStoreService.lists.length){
-            let firstListId = this.listStoreService.lists[0]._id;
-            this.router.navigate(['/list', firstListId]);
-          }
-          else{
-            this.router.navigate(['/addlist']);
-          }
-
-        });
-
-
+        this.defaultRedirectService.redirect();
 
       });
     });

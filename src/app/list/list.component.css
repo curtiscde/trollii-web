@@ -10,3 +10,7 @@ mat-card{
     font-size: 1.2em;
     padding-top: 8px;
 }
+
+form.additem button{
+    margin:10px;
+}

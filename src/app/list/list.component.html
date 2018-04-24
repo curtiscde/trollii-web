@@ -1,8 +1,5 @@
 <div *ngIf="list">
-
-  <mat-card>
-    <mat-card-title>
-      <mat-toolbar>
+  <mat-toolbar>
       {{ list.name }}
       
       <span class="spacer"></span>
@@ -26,24 +23,38 @@
       </mat-menu>
       
     </mat-toolbar>
-    </mat-card-title>
-    <mat-card-content fxLayout="row">
-      <mat-form-field>
-        <input #itemName matInput placeholder="Enter Item" (keyup.enter)="addItem(itemName.value); itemName.value=''; itemName.focus();">
-      </mat-form-field>
-      <div fxFlex ></div>
-      <button mat-raised-button class="mat-accent" (click)="addItem(itemName.value); itemName.value=''; itemName.focus();"><mat-icon matListIcon>add</mat-icon> Add Item</button>
+
+  <mat-card>
+    <mat-card-content>
+      <form #formCtrl="ngForm" fxLayout="row" class="additem">
+        <mat-form-field fxFlex>
+          <input #itemNameId matInput placeholder="Enter Item" required [(ngModel)]="itemName" name="itemName">
+        </mat-form-field>
+        <div fxFlex="5%"></div>
+        <div fxFlex="98px">
+          <button mat-raised-button class="mat-accent"
+                  (click)="addItem(itemName); itemName=''; itemNameId.focus();"
+                  [disabled]="formCtrl.form.invalid">
+            <mat-icon matListIcon>add</mat-icon> Add
+          </button>
+        </div>
+      </form>
     </mat-card-content>
-    <mat-card-actions>
-      
-    </mat-card-actions>
   </mat-card>
+
+  <mat-divider></mat-divider>
     
   <mat-card *ngFor="let item of list.items">
     <mat-card-content fxLayout="row" >
       <span class="name">{{ item.name }}</span>
       <div fxFlex ></div>
       <button mat-button (click)="removeItem(item)">Done</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="!list.items.length">
+    <mat-card-content>
+      No items
     </mat-card-content>
   </mat-card>
 

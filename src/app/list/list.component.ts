@@ -107,6 +107,8 @@ export class ListComponent implements OnInit {
   }
 
   //Item Methods
+  itemName: String;
+
   addItem(name: string){
     this.itemService.addItem(this.list._id, name)
       .subscribe(data => {

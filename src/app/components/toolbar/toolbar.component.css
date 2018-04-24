@@ -1,0 +1,11 @@
+mat-toolbar h1{
+    margin-left: 8px;
+}
+
+mat-toolbar h1 span{
+    font-size:0.6em;
+}
+
+.menu {
+    cursor: pointer;
+}
