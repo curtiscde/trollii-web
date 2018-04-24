@@ -1,8 +1,5 @@
 <div *ngIf="list">
-
-  <mat-card>
-    <mat-card-title>
-      <mat-toolbar>
+  <mat-toolbar>
       {{ list.name }}
       
       <span class="spacer"></span>
@@ -26,6 +23,10 @@
       </mat-menu>
       
     </mat-toolbar>
+
+  <mat-card>
+    <mat-card-title>
+
     </mat-card-title>
     <mat-card-content fxLayout="row">
       <mat-form-field>
