@@ -56,6 +56,7 @@ import { ListComponent } from './list/list.component';
 import { ListService } from './list.service';
 import { ListStoreService } from './list-store.service';
 import { AuthGuardService } from './auth-guard.service';
+import { DefaultRedirectService } from './services/default-redirect.service';
 import { LoginCallbackComponent } from './login-callback/login-callback.component';
 import { ListInviteComponent } from './list-invite/list-invite.component';
 import { ListInviteAcceptEntryComponent } from './components/list-invite-accept-entry/list-invite-accept-entry.component';
@@ -121,7 +122,8 @@ import { ListInviteAcceptComponent } from './components/list-invite-accept/list-
     AuthService,
     AuthGuardService,
     ListService,
-    ListStoreService
+    ListStoreService,
+    DefaultRedirectService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
