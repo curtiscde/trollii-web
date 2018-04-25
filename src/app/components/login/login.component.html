@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="!authService.isAuthenticated()">
     <mat-card-content>
         <div class="image">
             <img src="assets/images/logo.png" alt="Trollii" />
@@ -6,3 +6,5 @@
         <button mat-raised-button class="mat-accent" (click)="login()"><mat-icon matListIcon>lock open</mat-icon> Login or Sign Up</button>
     </mat-card-content>
 </mat-card>
+
+<app-loading-spinner *ngIf="authService.isAuthenticated()">Loading</app-loading-spinner>
