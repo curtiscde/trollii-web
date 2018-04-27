@@ -63,6 +63,7 @@ import { ListInviteAcceptEntryComponent } from './components/list-invite-accept-
 import { ListInviteAcceptComponent } from './components/list-invite-accept/list-invite-accept.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { ItemComponent } from './components/item/item.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     ListInviteAcceptEntryComponent,
     ListInviteAcceptComponent,
     ToolbarComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
