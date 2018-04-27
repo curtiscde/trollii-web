@@ -10,12 +10,14 @@ import { ListService } from '../list.service';
 import { ListStoreService } from '../list-store.service';
 import { ListInviteService } from '../services/list-invite.service';
 import { ItemService } from '../item.service';
+import { ItemOptionService } from '../services/item-option.service';
 import { SidebarService } from '../sidebar.service';
 
 import { ListInviteComponent } from '../list-invite/list-invite.component';
 
 import { List } from '../models/list';
 import { Item } from '../models/item';
+import { ItemOption } from '../models/item-option';
 
 @Component({
   selector: 'app-list',
@@ -25,7 +27,8 @@ import { Item } from '../models/item';
     GoogleAnalyticsService,
     ListService,
     ListInviteService,
-    ItemService
+    ItemService,
+    ItemOptionService
   ]
 })
 export class ListComponent implements OnInit {
@@ -40,14 +43,17 @@ export class ListComponent implements OnInit {
     private listStoreService: ListStoreService,
     private listInviteService: ListInviteService,
     private itemService: ItemService,
+    private itemOptionService: ItemOptionService,
     private sidebarService: SidebarService    
   ) { }
 
   list: List;
+  itemOptions: ItemOption[];
 
   ngOnInit() {
 
     this.getList();
+    this.getItemOptions();
 
     this.route.params.subscribe( params => {
       this.getList();
@@ -124,6 +130,13 @@ export class ListComponent implements OnInit {
 
   listChange(event: List) {
     this.list = event;
+  }
+
+  getItemOptions(){
+    this.itemOptionService.getItems()
+      .subscribe(itemOptions => {
+        this.itemOptions = itemOptions;
+      });
   }
 
 }
