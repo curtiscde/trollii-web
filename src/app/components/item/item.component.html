@@ -5,6 +5,7 @@
       {{ item.name }}
     </span>
     <div fxFlex ></div>
-    <button mat-button (click)="removeItem(item)">Done</button>
+    <button mat-button (click)="removeItem(item)" *ngIf="!removing">Done</button>
+    <mat-progress-spinner mode="indeterminate" diameter="30" *ngIf="removing"></mat-progress-spinner>
   </mat-card-content>
 </mat-card>

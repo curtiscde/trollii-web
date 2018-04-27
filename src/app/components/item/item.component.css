@@ -11,3 +11,8 @@ mat-card .name{
     font-size: 1.2em;
     padding-top: 8px;
 }
+
+mat-card mat-progress-spinner{
+    margin-top:6px;
+    margin-right: 32px;
+}

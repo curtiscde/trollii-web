@@ -17,7 +17,9 @@ export class ItemComponent implements OnInit {
   @Input() listid: string;
   @Input() item: Item;
 
-  @Output() change: EventEmitter<List> = new EventEmitter<List>();;
+  @Output() change: EventEmitter<List> = new EventEmitter<List>();
+
+  removing: Boolean;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -26,9 +28,11 @@ export class ItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.removing = false;
   }
 
   removeItem(item: Item){
+    this.removing = true;
     this.itemService.removeItem(this.listid, item._id)
       .subscribe(list => {
         this.snackBar.open(`Item "${item.name}" removed`, '', { duration: 1000 });
