@@ -106,7 +106,6 @@ export class ListComponent implements OnInit {
       })
   }
 
-  //Item Methods
   itemName: String;
 
   addItem(name: string){
@@ -120,15 +119,6 @@ export class ListComponent implements OnInit {
 
         let errorMessage = (error.error.code === 3) ? `Item "${name}" already exists` : `Something went wrong`;
         this.snackBar.open(errorMessage, '', { duration: 1000 });
-      });
-  }
-
-  removeItem(item: Item){
-    this.itemService.removeItem(this.list._id, item._id)
-      .subscribe(list => {
-        this.snackBar.open(`Item "${item.name}" removed`, '', { duration: 1000 });
-        this.googleAnalyticsService.emitEvent('Item', 'Remove');
-        this.list = list;
       });
   }
 

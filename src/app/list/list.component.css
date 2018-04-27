@@ -6,16 +6,6 @@ mat-card{
     margin: 12px 6px;
 }
 
-.emoji{
-    font-size:2em;
-    margin-right: 12px;
-}
-
-.name{
-    font-size: 1.2em;
-    padding-top: 8px;
-}
-
 form.additem button{
     margin:10px;
 }

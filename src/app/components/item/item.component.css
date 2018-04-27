@@ -1,0 +1,13 @@
+mat-card{
+    margin: 12px 6px;
+}
+
+mat-card .emoji{
+    font-size:2em;
+    margin-right: 12px;
+}
+
+mat-card .name{
+    font-size: 1.2em;
+    padding-top: 8px;
+}
