@@ -44,7 +44,12 @@
 
   <mat-divider></mat-divider>
     
-  <app-item *ngFor="let item of list.items" [listid]="list._id" [item]="item"></app-item>
+  <app-item
+    *ngFor="let item of list.items"
+    [listid]="list._id"
+    [item]="item"
+    (change)="listChange($event)"
+  ></app-item>
 
   <mat-card *ngIf="!list.items.length">
     <mat-card-content>

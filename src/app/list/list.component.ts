@@ -122,4 +122,8 @@ export class ListComponent implements OnInit {
       });
   }
 
+  listChange(event: List) {
+    this.list = event;
+  }
+
 }
