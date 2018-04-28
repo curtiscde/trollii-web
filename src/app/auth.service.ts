@@ -12,8 +12,8 @@ import { DefaultRedirectService } from './services/default-redirect.service';
 export class AuthService {
   auth0Options = {
     theme: {
-      logo: `${environment.webUrl}/assets/images/icon.png`,
-      primaryColor: '#3f51b5'
+      logo: `${environment.webUrl}/assets/images/icons/icon-128x128.png`,
+      primaryColor: '#00acc1'
     },
     auth: {
       redirectUrl: environment.auth0.callbackURL,
