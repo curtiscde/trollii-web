@@ -28,7 +28,13 @@
     <mat-card-content>
       <form #formCtrl="ngForm" fxLayout="row" class="additem">
         <mat-form-field fxFlex>
-          <input #itemNameId matInput placeholder="Enter Item" required [(ngModel)]="itemName" name="itemName">
+          <input #itemNameId matInput placeholder="Enter Item" required [(ngModel)]="itemName" name="itemName" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let item of filteredItemOptions()" [value]="item.name">
+              {{item.emoji}}
+              <span>{{ item.name }}</span>
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
         <div fxFlex="5%"></div>
         <div fxFlex="98px">

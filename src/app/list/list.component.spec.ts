@@ -22,4 +22,20 @@ describe('ListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return filtered item options based on name entered', () => {
+
+    let itemOptions = [
+      { name: 'Foo', emoji: '💩' },
+      { name: 'Bar', emoji: '🥑' }
+    ];
+
+    expect(component.filterItemOptions(itemOptions, 'Fo')).toEqual(
+      [
+        { name: 'Foo', emoji: '💩' }
+      ]
+    )
+
+  });
+
 });
