@@ -140,7 +140,11 @@ export class ListComponent implements OnInit {
   }
 
   filteredItemOptions(){
-    return this.itemOptions.filter(itemOption => this.itemName && itemOption.name.toLowerCase().indexOf(this.itemName.toLowerCase())>=0);
+    return this.filterItemOptions(this.itemOptions, this.itemName);
+  }
+
+  filterItemOptions(itemOptions: ItemOption[], itemName: string){
+    return itemOptions.filter(itemOption => itemName && itemOption.name.toLowerCase().indexOf(itemName.toLowerCase())>=0);
   }
 
 }
