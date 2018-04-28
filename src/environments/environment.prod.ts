@@ -1,9 +1,6 @@
-declare function require(moduleName: string): any;
-const {version : appVersion} = require('../../package.json');
-
 export const environment = {
   production: true,
-  version: appVersion,
+  version: '0.22.1',
   webUrl: 'https://app.trollii.com',
   serviceUrl: 'https://trollii-prod.herokuapp.com',
   googleAnalyticsKey: 'UA-116772216-2',
