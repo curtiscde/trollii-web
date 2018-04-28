@@ -20,6 +20,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "trollii-theme.scss",
         "styles.css"
       ],
       "scripts": [
