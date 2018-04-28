@@ -12,7 +12,7 @@ import { DefaultRedirectService } from './services/default-redirect.service';
 export class AuthService {
   auth0Options = {
     theme: {
-      logo: `${environment.webUrl}/assets/images/icon.png`,
+      logo: `${environment.webUrl}/assets/images/icons/icon-128x128.png`,
       primaryColor: '#3f51b5'
     },
     auth: {
