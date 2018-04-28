@@ -144,7 +144,7 @@ export class ListComponent implements OnInit {
   }
 
   filterItemOptions(itemOptions: ItemOption[], itemName: string){
-    return itemOptions.filter(itemOption => itemName && itemOption.name.toLowerCase().indexOf(itemName.toLowerCase())>=0);
+    return itemOptions ? itemOptions.filter(itemOption => itemName && itemOption.name.toLowerCase().indexOf(itemName.toLowerCase())>=0) : [];
   }
 
 }
