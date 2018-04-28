@@ -30,7 +30,7 @@
         <mat-form-field fxFlex>
           <input #itemNameId matInput placeholder="Enter Item" required [(ngModel)]="itemName" name="itemName" [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let item of itemOptions" [value]="item.name">
+            <mat-option *ngFor="let item of filteredItemOptions()" [value]="item.name">
               {{item.emoji}}
               <span>{{ item.name }}</span>
             </mat-option>

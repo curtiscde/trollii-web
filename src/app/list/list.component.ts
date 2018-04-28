@@ -112,7 +112,7 @@ export class ListComponent implements OnInit {
       })
   }
 
-  itemName: String;
+  itemName: string;
 
   addItem(name: string){
     this.itemService.addItem(this.list._id, name)
@@ -137,6 +137,10 @@ export class ListComponent implements OnInit {
       .subscribe(itemOptions => {
         this.itemOptions = itemOptions;
       });
+  }
+
+  filteredItemOptions(){
+    return this.itemOptions.filter(itemOption => this.itemName && itemOption.name.toLowerCase().indexOf(this.itemName.toLowerCase())>=0);
   }
 
 }
