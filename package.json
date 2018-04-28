@@ -1,6 +1,6 @@
 {
   "name": "trollii-web",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@angular/service-worker": "^5.2.10",
     "angular2-jwt": "^0.2.3",
     "auth0-js": "^9.4.0",
     "auth0-lock": "^11.5.0",
