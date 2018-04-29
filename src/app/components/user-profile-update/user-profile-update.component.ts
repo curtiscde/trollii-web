@@ -36,6 +36,9 @@ export class UserProfileUpdateComponent implements OnInit {
       .subscribe(user => {
         this.snackBar.open(`Profile Updated`, '', { duration: 1000 });
         this.googleAnalyticsService.emitEvent('User Profile', 'Update');
+      }, () => {
+        this.snackBar.open(`Something went wrong`, '', { duration: 1000 });
+        this.googleAnalyticsService.emitEvent('Error', 'User Profile Update');
       });
   }
 
