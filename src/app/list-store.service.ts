@@ -9,4 +9,8 @@ export class ListStoreService {
 
   lists: List[];
 
+  public clear(){
+    this.lists = null;
+  }
+
 }
