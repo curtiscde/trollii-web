@@ -9,4 +9,8 @@ export class UserStoreService {
 
   user: User;
 
+  public clear(){
+    this.user = null;
+  }
+
 }
