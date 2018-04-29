@@ -5,4 +5,7 @@ export class List {
     isowner: boolean;
     name: string;
     items: Item[];
+    members: [{
+        userid: string;
+    }]
 }
