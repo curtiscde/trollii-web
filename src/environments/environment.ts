@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  version: '0.23.1',
+  version: '0.24.0',
   webUrl: 'http://localhost:4200',
   serviceUrl: 'http://localhost:8080',
   googleAnalyticsKey: 'UA-116772216-1',
