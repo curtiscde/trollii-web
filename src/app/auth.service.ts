@@ -52,20 +52,7 @@ export class AuthService {
         localStorage.setItem('token', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
 
-        this.userService.getUser()
-          .subscribe(user => {
-            if (user){
-              this.userStoreService.user = user;
-              this.defaultRedirectService.redirect();
-            }
-            else if (profile && profile.nickname){
-              this.userService.updateUser(profile.nickname)
-                .subscribe(user => {
-                  this.userStoreService.user = user;
-                  this.defaultRedirectService.redirect();
-                });
-            }
-          });
+        this.defaultRedirectService.redirect();
 
       });
     });

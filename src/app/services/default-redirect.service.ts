@@ -31,26 +31,27 @@ export class DefaultRedirectService {
         .subscribe(lists => {
   
           this.listStoreService.lists = lists;
-  
-          if (!this.userStoreService.user){
-            this.router.navigate(['/profile/update']);
-          }
-          else if(localStorage.getItem('invite_token')){
-            this.router.navigate(['/l/invite']);
-          }
-          else if (lists && lists.length){
-            this.router.navigate(['/list', lists[0]._id]);
-          }
-          else{
-            this.router.navigate(['/addlist']);
-          }
+          this.redirectSwitch();
   
         });
 
       });
 
+  }
 
-
+  private redirectSwitch(){
+    if (!this.userStoreService.user){
+      this.router.navigate(['/profile/update']);
+    }
+    else if(localStorage.getItem('invite_token')){
+      this.router.navigate(['/l/invite']);
+    }
+    else if (this.listStoreService.lists && this.listStoreService.lists.length){
+      this.router.navigate(['/list', this.listStoreService.lists[0]._id]);
+    }
+    else{
+      this.router.navigate(['/addlist']);
+    }
   }
 
 }
