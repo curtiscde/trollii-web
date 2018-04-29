@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>
+    Update Profile
+  </mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+        <input #displayNameId
+                matInput
+                placeholder="Display Name"
+                [(ngModel)]="displayName">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+      <button type="submit" mat-raised-button class="mat-accent" (click)="update(displayName.value);"><mat-icon matListIcon>save</mat-icon> Save Profile</button>
+  </mat-card-actions>
+</mat-card>
