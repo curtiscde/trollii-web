@@ -28,6 +28,13 @@ export class UserProfileUpdateComponent implements OnInit {
     this.userService.getUser()
       .subscribe(user => {
         this.displayName = user.displayname;
+      }, () => {
+        this.googleAnalyticsService.emitEvent('Error', 'User Profile Get');
+
+        if (localStorage.getItem('profile') && JSON.parse(localStorage.getItem('profile')).nickname){
+          this.displayName = JSON.parse(localStorage.getItem('profile')).nickname;
+        }
+
       });
   }
 
