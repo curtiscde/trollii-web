@@ -7,6 +7,8 @@ import { tokenNotExpired } from 'angular2-jwt';
 import Auth0Lock from 'auth0-lock';
 
 import { DefaultRedirectService } from './services/default-redirect.service';
+import { UserService } from './services/user.service';
+import { UserStoreService } from './services/store/user-store.service';
 
 @Injectable()
 export class AuthService {
@@ -38,7 +40,9 @@ export class AuthService {
 
   constructor(
     private router: Router,
-    private defaultRedirectService: DefaultRedirectService
+    private defaultRedirectService: DefaultRedirectService,
+    private userService: UserService,
+    private userStoreService: UserStoreService
   ) {
     this.lock.on('authenticated', (authResult: any) => {
       this.lock.getUserInfo(authResult.accessToken, (error, profile) => {
@@ -48,7 +52,20 @@ export class AuthService {
         localStorage.setItem('token', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
 
-        this.defaultRedirectService.redirect();
+        this.userService.getUser()
+          .subscribe(user => {
+            if (user){
+              this.userStoreService.user = user;
+              this.defaultRedirectService.redirect();
+            }
+            else if (profile && profile.nickname){
+              this.userService.updateUser(profile.nickname)
+                .subscribe(user => {
+                  this.userStoreService.user = user;
+                  this.defaultRedirectService.redirect();
+                });
+            }
+          });
 
       });
     });
