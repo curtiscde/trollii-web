@@ -67,6 +67,7 @@ import { ListInviteAcceptComponent } from './components/list-invite-accept/list-
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { ItemComponent } from './components/item/item.component';
+import { UserProfileUpdateComponent } from './components/user-profile-update/user-profile-update.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { ItemComponent } from './components/item/item.component';
     ListInviteAcceptComponent,
     ToolbarComponent,
     LoadingSpinnerComponent,
-    ItemComponent
+    ItemComponent,
+    UserProfileUpdateComponent
   ],
   imports: [
     BrowserModule,

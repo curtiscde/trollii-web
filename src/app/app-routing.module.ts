@@ -10,6 +10,7 @@ import { ListComponent }  from './list/list.component';
 import { ListAddComponent }  from './list-add/list-add.component';
 import { ListInviteAcceptEntryComponent } from './components/list-invite-accept-entry/list-invite-accept-entry.component';
 import { ListInviteAcceptComponent } from './components/list-invite-accept/list-invite-accept.component';
+import { UserProfileUpdateComponent } from './components/user-profile-update/user-profile-update.component';
 
 const routes: Routes = [
 
@@ -21,7 +22,9 @@ const routes: Routes = [
 
   { path: 'list/:id', component: ListComponent, canActivate: [AuthGuardService] },
   { path: 'addlist', component: ListAddComponent, canActivate: [AuthGuardService] },
-  { path: 'l/invite', component: ListInviteAcceptComponent, canActivate: [AuthGuardService] }
+  { path: 'l/invite', component: ListInviteAcceptComponent, canActivate: [AuthGuardService] },
+
+  { path: 'profile/update', component: UserProfileUpdateComponent, canActivate: [AuthGuardService] }
 ];
 
 @NgModule({
