@@ -68,6 +68,14 @@ export class ListComponent implements OnInit {
       })
   }
 
+  itemCount(){
+    return this.list.items.length;
+  }
+
+  memberCount(){
+    return this.list.members.length;
+  }
+
   inviteMembers(){
     let inviteMemberDialog = this.dialog.open(ListInviteComponent, {
       width: '250px',
