@@ -58,6 +58,8 @@ import { ListAddComponent } from './list-add/list-add.component';
 import { ListComponent } from './list/list.component';
 import { ListService } from './list.service';
 import { ListStoreService } from './list-store.service';
+import { UserService } from './services/user.service';
+import { UserStoreService } from './services/store/user-store.service';
 import { AuthGuardService } from './auth-guard.service';
 import { DefaultRedirectService } from './services/default-redirect.service';
 import { LoginCallbackComponent } from './login-callback/login-callback.component';
@@ -136,7 +138,9 @@ import { UserProfileUpdateComponent } from './components/user-profile-update/use
     AuthGuardService,
     ListService,
     ListStoreService,
-    DefaultRedirectService
+    DefaultRedirectService,
+    UserService,
+    UserStoreService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

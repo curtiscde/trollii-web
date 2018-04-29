@@ -4,6 +4,8 @@ import { MatSnackBar } from '@angular/material';
 import { GoogleAnalyticsService } from '../../google-analytics.service';
 import { UserService } from '../../services/user.service';
 
+import { UserStoreService } from '../../services/store/user-store.service';
+
 @Component({
   selector: 'app-user-profile-update',
   templateUrl: './user-profile-update.component.html',
@@ -17,7 +19,8 @@ export class UserProfileUpdateComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private googleAnalyticsService: GoogleAnalyticsService,
-    private userService: UserService
+    private userService: UserService,
+    private userStoreService: UserStoreService
   ) { }
 
   ngOnInit() {
@@ -27,14 +30,17 @@ export class UserProfileUpdateComponent implements OnInit {
   getUser(){
     this.userService.getUser()
       .subscribe(user => {
-        this.displayName = user.displayname;
-      }, () => {
-        this.googleAnalyticsService.emitEvent('Error', 'User Profile Get');
 
-        if (localStorage.getItem('profile') && JSON.parse(localStorage.getItem('profile')).nickname){
+        if (user){
+          this.userStoreService.user = user;
+          this.displayName = this.userStoreService.user.displayname;
+        }
+        else if (localStorage.getItem('profile') && JSON.parse(localStorage.getItem('profile')).nickname){
           this.displayName = JSON.parse(localStorage.getItem('profile')).nickname;
         }
-
+        
+      }, () => {
+        this.googleAnalyticsService.emitEvent('Error', 'User Profile Get');
       });
   }
 
