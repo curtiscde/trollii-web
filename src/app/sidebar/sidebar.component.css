@@ -4,8 +4,8 @@
     max-width: 100%;
 }
 
-mat-nav-list{
-    padding-bottom: 40px;
+.bottom-divider{
+    margin-top: 40px;
 }
 
 .copyright-version{
