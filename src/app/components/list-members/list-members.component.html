@@ -1,3 +1,6 @@
 <div *ngIf="list">
   <app-list-toolbar [list]="list"></app-list-toolbar>
+  <div *ngFor="let member of list.members">
+    <img src="{{ member.picture }}" style="width:50px; border-radius:50%"/>
+  </div>
 </div>
