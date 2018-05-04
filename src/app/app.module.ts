@@ -71,6 +71,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
 import { ItemComponent } from './components/item/item.component';
 import { UserProfileUpdateComponent } from './components/user-profile-update/user-profile-update.component';
 import { ListToolbarComponent } from './components/list-toolbar/list-toolbar.component';
+import { ListMembersComponent } from './components/list-members/list-members.component';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import { ListToolbarComponent } from './components/list-toolbar/list-toolbar.com
     LoadingSpinnerComponent,
     ItemComponent,
     UserProfileUpdateComponent,
-    ListToolbarComponent
+    ListToolbarComponent,
+    ListMembersComponent
   ],
   imports: [
     BrowserModule,
