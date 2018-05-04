@@ -1,0 +1,13 @@
+mat-card{
+    margin: 12px 6px;
+}
+
+
+.picture{
+    width:50px;
+    border-radius:50%
+}
+
+.displayname{
+    margin-top: 14px;
+}

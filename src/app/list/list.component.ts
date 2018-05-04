@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { ActivatedRoute } from '@angular/router';
 
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 import { AuthService } from '../auth.service';
 import { GoogleAnalyticsService } from '../google-analytics.service';
 import { ListService } from '../list.service';
 import { ListStoreService } from '../list-store.service';
-import { ListInviteService } from '../services/list-invite.service';
 import { ItemService } from '../item.service';
 import { ItemOptionService } from '../services/item-option.service';
 import { SidebarService } from '../sidebar.service';
@@ -26,7 +25,6 @@ import { ItemOption } from '../models/item-option';
   providers: [
     GoogleAnalyticsService,
     ListService,
-    ListInviteService,
     ItemService,
     ItemOptionService
   ]
@@ -37,11 +35,9 @@ export class ListComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public snackBar: MatSnackBar,
-    public dialog: MatDialog,
     private googleAnalyticsService: GoogleAnalyticsService,
     private listService: ListService,
     private listStoreService: ListStoreService,
-    private listInviteService: ListInviteService,
     private itemService: ItemService,
     private itemOptionService: ItemOptionService,
     private sidebarService: SidebarService    
@@ -65,58 +61,6 @@ export class ListComponent implements OnInit {
     this.listService.getLists()
       .subscribe(data => {
         this.list = data.find(list => list._id === this.route.snapshot.paramMap.get('id'))
-      })
-  }
-
-  itemCount(){
-    return this.list.items.length;
-  }
-
-  memberCount(){
-    return this.list.members.length;
-  }
-
-  inviteMembers(){
-    let inviteMemberDialog = this.dialog.open(ListInviteComponent, {
-      width: '250px',
-      data: { listid: this.list._id, memberemail: '' }
-    });
-
-    inviteMemberDialog.afterClosed().subscribe(memberEmail => {
-      if (memberEmail){
-        this.snackBar.open(`Sending invite...`, '', { duration: 2000 });
-        this.listInviteService.sendInvite(this.list._id, memberEmail)
-          .subscribe(data => {
-            this.snackBar.open(`Invite sent to ${memberEmail}`, '', { duration: 2000 });
-            this.googleAnalyticsService.emitEvent('List', 'Invite Sent');
-          });
-      }
-    });
-  }
-
-  removeList() {
-    this.listService.deleteList(this.list)
-      .subscribe(lists => {
-        this.snackBar.open(`List "${this.list.name}" deleted`, '', {
-          duration: 1000
-        });
-        this.googleAnalyticsService.emitEvent('List', 'Remove');
-        this.listStoreService.lists = lists;
-        this.router.navigate(['']);
-      });
-  }
-
-  leaveList() {
-    this.listService.leaveList(this.list)
-      .subscribe(data => {
-        this.listService.getLists();
-        this.snackBar.open(`Left "${this.list.name}" list`, '', {
-          duration: 1000
-        });
-        this.googleAnalyticsService.emitEvent('List', 'Leave');
-        this.router.navigate(['']);
-        this.listService.getLists()
-          .subscribe(data => this.listStoreService.lists = data);
       })
   }
 

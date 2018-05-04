@@ -1,0 +1,15 @@
+<div *ngIf="list">
+  <app-list-toolbar [list]="list"></app-list-toolbar>
+  <mat-card *ngFor="let member of list.members" fxLayout="row">
+
+    <div fxFlex="70px">
+      <img *ngIf="member.picture" src="{{ member.picture }}" class="picture" />
+      <img *ngIf="!member.picture" src="assets/images/icons/icon-152x152.png" class="picture" />
+    </div>
+
+    <div class="displayname">
+      <span *ngIf="member.displayname">{{ member.displayname }}</span>
+      <span *ngIf="!member.displayname">Unknown User</span>
+    </div>
+  </mat-card>
+</div>

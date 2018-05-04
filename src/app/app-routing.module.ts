@@ -7,6 +7,7 @@ import { HomeComponent }      from './home/home.component';
 import { LoginComponent }  from './components/login/login.component';
 import { LoginCallbackComponent }  from './login-callback/login-callback.component';
 import { ListComponent }  from './list/list.component';
+import { ListMembersComponent }  from './components/list-members/list-members.component';
 import { ListAddComponent }  from './list-add/list-add.component';
 import { ListInviteAcceptEntryComponent } from './components/list-invite-accept-entry/list-invite-accept-entry.component';
 import { ListInviteAcceptComponent } from './components/list-invite-accept/list-invite-accept.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
 
   { path: 'list/:id', component: ListComponent, canActivate: [AuthGuardService] },
+  { path: 'list/:id/members', component: ListMembersComponent, canActivate: [AuthGuardService] },
   { path: 'addlist', component: ListAddComponent, canActivate: [AuthGuardService] },
   { path: 'l/invite', component: ListInviteAcceptComponent, canActivate: [AuthGuardService] },
 
