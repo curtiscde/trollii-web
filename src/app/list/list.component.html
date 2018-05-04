@@ -1,34 +1,5 @@
 <div *ngIf="list">
   <app-list-toolbar [list]="list"></app-list-toolbar>
-  <mat-toolbar>
-      {{ list.name }}
-      
-      <span class="spacer"></span>
-      
-      <mat-chip-list>
-        <mat-chip>📝 {{ itemCount() }}</mat-chip>
-        <mat-chip>👥 {{ memberCount() }}</mat-chip>
-      </mat-chip-list>
-      <button mat-icon-button [matMenuTriggerFor]="menu">
-          <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="inviteMembers()" *ngIf="list.isowner">
-          <mat-icon>people</mat-icon>
-          <span>Invite Members</span>
-        </button>
-        <button mat-menu-item (click)="removeList()" *ngIf="list.isowner">
-          <mat-icon>delete</mat-icon>
-          <span>Remove List</span>
-        </button>
-        <button mat-menu-item (click)="leaveList()" *ngIf="!list.isowner">
-          <mat-icon>delete</mat-icon>
-          <span>Leave List</span>
-        </button>
-      </mat-menu>
-      
-    </mat-toolbar>
-
   <mat-card>
     <mat-card-content>
       <form #formCtrl="ngForm" fxLayout="row" class="additem">

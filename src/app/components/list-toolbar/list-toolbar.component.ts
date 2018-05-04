@@ -14,7 +14,8 @@ import { List } from '../../models/list';
 @Component({
   selector: 'app-list-toolbar',
   templateUrl: './list-toolbar.component.html',
-  styleUrls: ['./list-toolbar.component.css']
+  styleUrls: ['./list-toolbar.component.css'],
+  providers: [ ListInviteService ]
 })
 export class ListToolbarComponent implements OnInit {
   @Input() list: List;
