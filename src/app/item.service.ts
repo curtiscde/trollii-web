@@ -5,6 +5,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
 import { List } from './models/list';
+import { ItemResponse } from './models/item-response';
 
 
 @Injectable()
@@ -23,7 +24,7 @@ export class ItemService {
 
   addItem(listid: string, name: string){
 
-    return this.http.post<List>(`${environment.serviceUrl}/api/item`, {
+    return this.http.post<ItemResponse>(`${environment.serviceUrl}/api/item`, {
       listid: listid,
       name: name
     }, this.getHttpOptions());
