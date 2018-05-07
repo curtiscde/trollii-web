@@ -9,7 +9,12 @@
 <div *ngIf="isAuthenticated()">
     <mat-nav-list>
         <a mat-list-item *ngFor="let list of lists()" [routerLink]="['list', list._id ]">
-            <div matListAvatar style="background:#aeea00;"></div>
+
+            <div matListAvatar class="list-icon">
+                <span *ngFor="let item of getTopListEmojis(list)">
+                    {{ item.emoji }}
+                </span>
+            </div>
             <h3 matLine> {{ list.name }}</h3>
             <div matLine class="members">
                 <span *ngFor="let member of list.members">

@@ -47,6 +47,10 @@ export class SidebarComponent implements OnInit {
       .subscribe(data => this.listStoreService.lists = data);
   }
 
+  getTopListEmojis(list: List){
+    return list.items.filter(item => !!item.emoji).slice(0, 3);
+  }
+
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
