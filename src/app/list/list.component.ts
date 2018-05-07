@@ -58,11 +58,17 @@ export class ListComponent implements OnInit {
   }
 
   getList() {
-    this.listService.getLists()
+    let listId = this.route.snapshot.paramMap.get('id');
+    if (this.listStoreService.lists){
+      this.list = this.listStoreService.getList(listId);
+    }
+    else{
+      this.listService.getLists()
       .subscribe(lists => {
         this.listStoreService.lists = lists
-        this.list = this.listStoreService.lists.find(list => list._id === this.route.snapshot.paramMap.get('id'));
-      })
+        this.list = this.listStoreService.getList(listId);
+      });
+    }
   }
 
   itemName: string;
