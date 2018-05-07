@@ -32,7 +32,7 @@ export class ItemService {
   }
 
   removeItem(listid: string, itemid: string){
-    return this.http.delete<List>(`${environment.serviceUrl}/api/item/${listid}/${itemid}`, this.getHttpOptions());
+    return this.http.delete<ItemResponse>(`${environment.serviceUrl}/api/item/${listid}/${itemid}`, this.getHttpOptions());
   }
 
 }
