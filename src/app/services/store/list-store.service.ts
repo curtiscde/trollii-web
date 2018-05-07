@@ -14,6 +14,10 @@ export class ListStoreService {
     this.lists = null;
   }
 
+  public getList(listid: String){
+    return this.lists.find(list => list._id === listid);
+  }
+
   public updateListItems(listid: String, items: Item[]){
     this.lists.forEach(list => {
       if (list._id === listid){

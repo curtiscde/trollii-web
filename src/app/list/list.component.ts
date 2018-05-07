@@ -58,11 +58,17 @@ export class ListComponent implements OnInit {
   }
 
   getList() {
-    this.listService.getLists()
+    let listId = this.route.snapshot.paramMap.get('id');
+    if (this.listStoreService.lists){
+      this.list = this.listStoreService.getList(listId);
+    }
+    else{
+      this.listService.getLists()
       .subscribe(lists => {
         this.listStoreService.lists = lists
-        this.list = this.listStoreService.lists.find(list => list._id === this.route.snapshot.paramMap.get('id'));
-      })
+        this.list = this.listStoreService.getList(listId);
+      });
+    }
   }
 
   itemName: string;
@@ -73,16 +79,11 @@ export class ListComponent implements OnInit {
         this.listStoreService.updateListItems(this.list._id, list.items);
         this.snackBar.open(`Item "${name}" added`, '', { duration: 1000 });
         this.googleAnalyticsService.emitEvent('Item', 'Add');
-        this.list = list;
       }, error => {
         this.googleAnalyticsService.emitEvent('Error', 'Item Add', error.error.error);
         let errorMessage = (error.error.code === 3) ? `Item "${name}" already exists` : `Something went wrong`;
         this.snackBar.open(errorMessage, '', { duration: 1000 });
       });
-  }
-
-  listChange(event: List) {
-    this.list = event;
   }
 
   getItemOptions(){

@@ -18,8 +18,6 @@ export class ItemComponent implements OnInit {
   @Input() listid: string;
   @Input() item: Item;
 
-  @Output() change: EventEmitter<List> = new EventEmitter<List>();
-
   removing: Boolean;
 
   constructor(
@@ -36,11 +34,10 @@ export class ItemComponent implements OnInit {
   removeItem(item: Item){
     this.removing = true;
     this.itemService.removeItem(this.listid, item._id)
-      .subscribe(list => {
-        this.listStoreService.updateListItems(this.listid, list.items);
+      .subscribe(itemResponse => {
+        this.listStoreService.updateListItems(itemResponse._id, itemResponse.items);
         this.snackBar.open(`Item "${item.name}" removed`, '', { duration: 1000 });
         this.googleAnalyticsService.emitEvent('Item', 'Remove');
-        this.change.emit(list);
       });
   }
 
