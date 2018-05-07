@@ -5,7 +5,7 @@ import { UserService } from '../services/user.service';
 import { UserStoreService } from '../services/store/user-store.service';
 
 import { ListService } from '../list.service';
-import { ListStoreService } from '../list-store.service';
+import { ListStoreService } from '../services/store/list-store.service';
 
 @Injectable()
 export class DefaultRedirectService {

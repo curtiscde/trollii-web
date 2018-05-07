@@ -4,7 +4,7 @@ import { MatSnackBar, MatDialog } from '@angular/material';
 
 import { GoogleAnalyticsService } from '../../google-analytics.service';
 import { ListService } from '../../list.service';
-import { ListStoreService } from '../../list-store.service';
+import { ListStoreService } from '../../services/store/list-store.service';
 import { ListInviteService } from '../../services/list-invite.service';
 
 import { ListInviteComponent } from '../../list-invite/list-invite.component';

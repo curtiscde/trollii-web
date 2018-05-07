@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material';
 import { GoogleAnalyticsService } from '../../google-analytics.service';
 import { ListInviteService } from '../../services/list-invite.service';
 import { ListService } from '../../list.service';
-import { ListStoreService } from '../../list-store.service';
+import { ListStoreService } from '../../services/store/list-store.service';
 
 @Component({
   selector: 'app-list-invite-accept',

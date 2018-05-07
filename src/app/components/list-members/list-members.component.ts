@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ListService } from '../../list.service';
-import { ListStoreService } from '../../list-store.service';
+import { ListStoreService } from '../../services/store/list-store.service';
 
 import { List } from '../../models/list';
 

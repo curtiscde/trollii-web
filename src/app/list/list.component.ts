@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material';
 import { AuthService } from '../auth.service';
 import { GoogleAnalyticsService } from '../google-analytics.service';
 import { ListService } from '../list.service';
-import { ListStoreService } from '../list-store.service';
+import { ListStoreService } from '../services/store/list-store.service';
 import { ItemService } from '../item.service';
 import { ItemOptionService } from '../services/item-option.service';
 import { SidebarService } from '../sidebar.service';
@@ -59,8 +59,9 @@ export class ListComponent implements OnInit {
 
   getList() {
     this.listService.getLists()
-      .subscribe(data => {
-        this.list = data.find(list => list._id === this.route.snapshot.paramMap.get('id'))
+      .subscribe(lists => {
+        this.listStoreService.lists = lists
+        this.list = this.listStoreService.lists.find(list => list._id === this.route.snapshot.paramMap.get('id'));
       })
   }
 
@@ -68,10 +69,11 @@ export class ListComponent implements OnInit {
 
   addItem(name: string){
     this.itemService.addItem(this.list._id, name)
-      .subscribe(data => {
+      .subscribe(list => {
+        this.listStoreService.updateListItems(this.list._id, list.items);
         this.snackBar.open(`Item "${name}" added`, '', { duration: 1000 });
         this.googleAnalyticsService.emitEvent('Item', 'Add');
-        this.list = data;
+        this.list = list;
       }, error => {
         this.googleAnalyticsService.emitEvent('Error', 'Item Add', error.error.error);
         let errorMessage = (error.error.code === 3) ? `Item "${name}" already exists` : `Something went wrong`;

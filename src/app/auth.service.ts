@@ -9,7 +9,7 @@ import Auth0Lock from 'auth0-lock';
 import { DefaultRedirectService } from './services/default-redirect.service';
 import { UserService } from './services/user.service';
 import { UserStoreService } from './services/store/user-store.service';
-import { ListStoreService } from './list-store.service';
+import { ListStoreService } from './services/store/list-store.service';
 
 @Injectable()
 export class AuthService {
