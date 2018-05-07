@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { List } from './models/list';
+import { List } from '../../models/list';
 
 @Injectable()
 export class ListStoreService {

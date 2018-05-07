@@ -57,7 +57,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ListAddComponent } from './list-add/list-add.component';
 import { ListComponent } from './list/list.component';
 import { ListService } from './list.service';
-import { ListStoreService } from './list-store.service';
+import { ListStoreService } from './services/store/list-store.service';
 import { UserService } from './services/user.service';
 import { UserStoreService } from './services/store/user-store.service';
 import { AuthGuardService } from './auth-guard.service';

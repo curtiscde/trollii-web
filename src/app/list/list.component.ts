@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material';
 import { AuthService } from '../auth.service';
 import { GoogleAnalyticsService } from '../google-analytics.service';
 import { ListService } from '../list.service';
-import { ListStoreService } from '../list-store.service';
+import { ListStoreService } from '../services/store/list-store.service';
 import { ItemService } from '../item.service';
 import { ItemOptionService } from '../services/item-option.service';
 import { SidebarService } from '../sidebar.service';
