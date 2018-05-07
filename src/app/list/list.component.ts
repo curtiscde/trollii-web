@@ -59,8 +59,9 @@ export class ListComponent implements OnInit {
 
   getList() {
     this.listService.getLists()
-      .subscribe(data => {
-        this.list = data.find(list => list._id === this.route.snapshot.paramMap.get('id'))
+      .subscribe(lists => {
+        this.listStoreService.lists = lists
+        this.list = this.listStoreService.lists.find(list => list._id === this.route.snapshot.paramMap.get('id'));
       })
   }
 

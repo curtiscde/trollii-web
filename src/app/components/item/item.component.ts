@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 
 import { GoogleAnalyticsService } from '../../google-analytics.service';
+import { ListStoreService } from '../../services/store/list-store.service';
 import { ItemService } from '../../item.service';
 
 import { List } from '../../models/list';
@@ -24,6 +25,7 @@ export class ItemComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private googleAnalyticsService: GoogleAnalyticsService,
+    private listStoreService: ListStoreService,
     private itemService: ItemService
   ) { }
 
@@ -35,6 +37,7 @@ export class ItemComponent implements OnInit {
     this.removing = true;
     this.itemService.removeItem(this.listid, item._id)
       .subscribe(list => {
+        this.listStoreService.updateListItems(this.listid, list.items);
         this.snackBar.open(`Item "${item.name}" removed`, '', { duration: 1000 });
         this.googleAnalyticsService.emitEvent('Item', 'Remove');
         this.change.emit(list);
