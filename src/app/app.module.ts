@@ -48,7 +48,7 @@ import {
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 import { AuthService } from './auth.service';
 import { AppRoutingModule } from './/app-routing.module';
