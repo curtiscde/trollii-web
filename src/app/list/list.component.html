@@ -1,3 +1,6 @@
+<div *ngIf="!list">
+  <app-loading-spinner [loadingText]="'Loading List...'"></app-loading-spinner>
+</div>
 <div *ngIf="list">
   <app-list-toolbar [list]="list"></app-list-toolbar>
   <mat-card>
