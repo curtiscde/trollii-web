@@ -9,14 +9,30 @@
 <div *ngIf="isAuthenticated()">
     <mat-nav-list>
         <a mat-list-item *ngFor="let list of lists()" [routerLink]="['list', list._id ]">
-            <mat-icon matListIcon>list</mat-icon> {{ list.name }}
+            <div matListAvatar style="background:#aeea00;"></div>
+            <h3 matLine> {{ list.name }}</h3>
+            <div matLine class="members">
+                <span *ngFor="let member of list.members">
+                    <img matListAvatar *ngIf="member.picture" src="{{ member.picture }}" class="picture" />
+                    <img matListAvatar *ngIf="!member.picture" src="assets/images/icons/icon-152x152.png" class="picture" />
+                </span>
+            </div>
         </a>
-        <a mat-list-item routerLink="/addlist"><mat-icon matListIcon>add</mat-icon> Add New List</a>
+        <a mat-list-item routerLink="/addlist">
+            <mat-icon matListIcon>add</mat-icon>
+            <span matLine>Add New List</span>
+        </a>
     </mat-nav-list>
     <mat-divider></mat-divider>
     <mat-nav-list>
-        <a mat-list-item routerLink="/profile/update"><mat-icon matListIcon>person pin</mat-icon> Update Profile</a>
-        <a mat-list-item (click)="logout()"><mat-icon matListIcon>exit_to_app</mat-icon> Logout</a>
+        <a mat-list-item routerLink="/profile/update">
+            <mat-icon matListIcon>person pin</mat-icon>
+            <span matLine>Update Profile</span>
+        </a>
+        <a mat-list-item (click)="logout()">
+            <mat-icon matListIcon>exit_to_app</mat-icon>
+            <span matLine>Logout</span>
+        </a>
     </mat-nav-list>
 </div>
 <mat-divider class="bottom-divider"></mat-divider>

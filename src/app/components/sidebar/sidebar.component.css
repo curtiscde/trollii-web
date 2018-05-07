@@ -4,6 +4,27 @@
     max-width: 100%;
 }
 
+.members
+{
+    margin-top: 4px;
+}
+
+.members span
+{
+    display: inline-block;
+    margin-top: 6px;
+}
+
+.members span:nth-child(n+2){
+    margin-left: -8px;
+}
+
+.members span .picture{
+    width:16px;
+    height:16px;
+    border:1px solid #000;
+}
+
 .bottom-divider{
     margin-top: 40px;
 }
