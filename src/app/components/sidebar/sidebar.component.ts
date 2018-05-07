@@ -48,7 +48,7 @@ export class SidebarComponent implements OnInit {
   }
 
   getTopListEmojis(list: List){
-    return list.items.filter(item => !!item.emoji).slice(0, 3);
+    return list.items.filter(item => !!item.emoji).slice(0, 4);
   }
 
   logout() {

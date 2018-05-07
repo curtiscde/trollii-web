@@ -10,10 +10,8 @@
     <mat-nav-list>
         <a mat-list-item *ngFor="let list of lists()" [routerLink]="['list', list._id ]">
 
-            <div matListAvatar class="list-icon">
-                <span *ngFor="let item of getTopListEmojis(list)">
-                    {{ item.emoji }}
-                </span>
+            <div matListAvatar class="list-icon"  fxLayout="row wrap"  fxLayoutGap="1px grid" fxLayoutAlign="center center">
+                <div *ngFor="let item of getTopListEmojis(list)" fxFlex="50%">{{ item.emoji }}</div>
             </div>
             <h3 matLine> {{ list.name }}</h3>
             <div matLine class="members">

@@ -11,10 +11,7 @@
     text-align: center;
     font-size: 0.8em;
     overflow: hidden;
-}
-
-.list-icon span{
-    display: inline-block;
+    padding-left: 4px;
 }
 
 .members
