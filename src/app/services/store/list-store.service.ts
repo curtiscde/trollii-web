@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { List } from '../../models/list';
+import { Item } from '../../models/item';
 
 @Injectable()
 export class ListStoreService {
@@ -11,6 +12,15 @@ export class ListStoreService {
 
   public clear(){
     this.lists = null;
+  }
+
+  public updateListItems(listid: String, items: Item[]){
+    this.lists.forEach(list => {
+      if (list._id === listid){
+        list.items.splice(0, list.items.length);
+        list.items.push(...items);
+      }
+    });;
   }
 
 }
