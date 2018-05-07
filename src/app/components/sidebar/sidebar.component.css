@@ -1,0 +1,49 @@
+.logo img{
+    margin:0 auto 20px;
+    display: block;
+    max-width: 100%;
+}
+
+.list-icon{
+    background:#aeea00;
+    width:40px;
+    height:40px;
+    text-align: center;
+    font-size: 0.8em;
+    overflow: hidden;
+}
+
+.list-icon span{
+    display: inline-block;
+}
+
+.members
+{
+    margin-top: 4px;
+}
+
+.members span
+{
+    display: inline-block;
+    margin-top: 6px;
+}
+
+.members span:nth-child(n+2){
+    margin-left: -8px;
+}
+
+.members span .picture{
+    width:16px;
+    height:16px;
+    border:1px solid #000;
+}
+
+.bottom-divider{
+    margin-top: 40px;
+}
+
+.copyright-version{
+    padding:20px;
+    font-size: 0.6em;
+    bottom:0;
+}

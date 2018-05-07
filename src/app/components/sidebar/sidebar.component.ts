@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
-import { List } from '../models/list';
+import { List } from '../../models/list';
 
-import { AuthService } from '../auth.service';
-import { ListService } from '../list.service';
-import { ListStoreService } from '../services/store/list-store.service';
-import { SidebarService } from '../sidebar.service';
+import { AuthService } from '../../auth.service';
+import { ListService } from '../../list.service';
+import { ListStoreService } from '../../services/store/list-store.service';
+import { SidebarService } from '../../sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -45,6 +45,10 @@ export class SidebarComponent implements OnInit {
   getLists() {
     this.listService.getLists()
       .subscribe(data => this.listStoreService.lists = data);
+  }
+
+  getTopListEmojis(list: List){
+    return list.items.filter(item => !!item.emoji).slice(0, 3);
   }
 
   logout() {
