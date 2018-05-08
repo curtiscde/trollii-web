@@ -76,6 +76,11 @@ export class AuthService {
     this.userStoreService.clear();
     localStorage.removeItem('profile');
     localStorage.removeItem('token');
+    localStorage.removeItem('token_exp');
+  }
+
+  getToken(): string {
+    return localStorage.getItem('token');
   }
 
   isAuthenticated() {
