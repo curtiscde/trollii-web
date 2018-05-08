@@ -11,17 +11,8 @@ export class ItemOptionService {
 
   constructor(private http: HttpClient) { }
 
-  private getHttpOptions() {
-    return {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    }
-  }
-
   getItems(){
-    return this.http.get<ItemOption[]>(`${environment.serviceUrl}/api/item-options`, this.getHttpOptions());
+    return this.http.get<ItemOption[]>(`${environment.serviceUrl}/api/item-options`);
   }
 
 }

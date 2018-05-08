@@ -13,23 +13,14 @@ export class UserService {
     private http: HttpClient
   ) { }
 
-  private getHttpOptions() {
-    return {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    }
-  }
-
   getUser() {
-    return this.http.get<User>(`${environment.serviceUrl}/api/user`, this.getHttpOptions());
+    return this.http.get<User>(`${environment.serviceUrl}/api/user`);
   }
 
   updateUser(displayName: string){
     return this.http.post<User>(`${environment.serviceUrl}/api/user`, {
       displayname: displayName
-    }, this.getHttpOptions());
+    });
   }
 
 }
