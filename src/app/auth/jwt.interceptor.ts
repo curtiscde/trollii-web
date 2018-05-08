@@ -18,7 +18,7 @@ import { AuthService } from '../auth/auth.service';
 export class JwtInterceptor implements HttpInterceptor {
 
   constructor(
-      public auth: AuthService,
+      public authService: AuthService,
       private router: Router
     ) {}
 
@@ -31,7 +31,7 @@ export class JwtInterceptor implements HttpInterceptor {
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
         if (err.status === 401) {
-          // redirect to the login route
+          this.authService.collectFailedRequest(request);
           this.router.navigate(['/login']);
         }
       }
