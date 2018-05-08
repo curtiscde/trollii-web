@@ -11,33 +11,24 @@ export class ListService {
 
   constructor(private http: HttpClient) { }
 
-  private getHttpOptions() {
-    return {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      })
-    }
-  }
-
   getLists() {
-    return this.http.get<List[]>(`${environment.serviceUrl}/api/list`, this.getHttpOptions());
+    return this.http.get<List[]>(`${environment.serviceUrl}/api/list`);
   }
 
   addList(name: String){
 
     return this.http.post<List[]>(`${environment.serviceUrl}/api/list`, {
       name: name
-    }, this.getHttpOptions());
+    });
 
   }
 
   deleteList(list: List){
-    return this.http.delete<List[]>(`${environment.serviceUrl}/api/list/${list._id}`, this.getHttpOptions());
+    return this.http.delete<List[]>(`${environment.serviceUrl}/api/list/${list._id}`);
   }
 
   leaveList(list: List){
-    return this.http.delete<any>(`${environment.serviceUrl}/api/list/${list._id}/member`, this.getHttpOptions());
+    return this.http.delete<any>(`${environment.serviceUrl}/api/list/${list._id}/member`);
   }
 
 }
