@@ -51,8 +51,11 @@ export class AuthService {
         if (error) {
           throw new Error(error);
         }
+        const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+
         localStorage.setItem('token', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
+        localStorage.setItem('token_exp', expiresAt);
 
         this.defaultRedirectService.redirect();
 
