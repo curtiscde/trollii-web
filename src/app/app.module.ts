@@ -50,7 +50,7 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
-import { AuthService } from './auth.service';
+import { AuthService } from './auth/auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { AppRoutingModule } from './/app-routing.module';

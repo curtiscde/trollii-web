@@ -16,7 +16,6 @@ export class ListService {
   }
 
   addList(name: String){
-
     return this.http.post<List[]>(`${environment.serviceUrl}/api/list`, {
       name: name
     });

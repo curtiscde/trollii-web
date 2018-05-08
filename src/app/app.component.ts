@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 
 import { environment } from '../environments/environment';
 import { GoogleAnalyticsService } from './google-analytics.service';
-import { AuthService } from './auth.service';
+import { AuthService } from './auth/auth.service';
 import { SidebarService } from './sidebar.service';
 
 @Component({

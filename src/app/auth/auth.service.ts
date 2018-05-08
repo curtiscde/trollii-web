@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { environment } from '../environments/environment';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 
 import { tokenNotExpired } from 'angular2-jwt';
-import Auth0Lock from 'auth0-lock';
+import { Auth0Lock } from 'auth0-lock';
 
-import { DefaultRedirectService } from './services/default-redirect.service';
-import { UserService } from './services/user.service';
-import { UserStoreService } from './services/store/user-store.service';
-import { ListStoreService } from './services/store/list-store.service';
+import { environment } from '../../environments/environment';
+
+import { DefaultRedirectService } from '../services/default-redirect.service';
+import { UserService } from '../services/user.service';
+import { UserStoreService } from '../services/store/user-store.service';
+import { ListStoreService } from '../services/store/list-store.service';
 
 @Injectable()
 export class AuthService {
+
+  cachedRequests: Array<HttpRequest<any>> = [];
+
   auth0Options = {
     theme: {
       logo: `${environment.webUrl}/assets/images/icons/icon-128x128.png`,
@@ -41,6 +45,7 @@ export class AuthService {
 
   constructor(
     private router: Router,
+    private http: HttpClient,
     private defaultRedirectService: DefaultRedirectService,
     private userService: UserService,
     private userStoreService: UserStoreService,
@@ -56,6 +61,8 @@ export class AuthService {
         localStorage.setItem('token', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
         localStorage.setItem('token_exp', expiresAt);
+
+        this.retryFailedRequests();
 
         this.defaultRedirectService.redirect();
 
@@ -85,5 +92,16 @@ export class AuthService {
 
   isAuthenticated() {
     return tokenNotExpired();
+  }
+
+  collectFailedRequest(request): void {
+    this.cachedRequests.push(request);
+  }
+
+  retryFailedRequests(): void {
+    this.cachedRequests.forEach( request => {
+      this.http.request(request).subscribe(a => console.log(a));
+    });
+    this.cachedRequests = [];
   }
 }
