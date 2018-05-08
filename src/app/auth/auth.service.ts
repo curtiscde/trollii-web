@@ -102,5 +102,6 @@ export class AuthService {
     this.cachedRequests.forEach( request => {
       this.http.request(request).subscribe(a => console.log(a));
     });
+    this.cachedRequests = [];
   }
 }
