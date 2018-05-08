@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 import { tokenNotExpired } from 'angular2-jwt';
 import Auth0Lock from 'auth0-lock';
 
-import { DefaultRedirectService } from './services/default-redirect.service';
-import { UserService } from './services/user.service';
-import { UserStoreService } from './services/store/user-store.service';
-import { ListStoreService } from './services/store/list-store.service';
+import { DefaultRedirectService } from '../services/default-redirect.service';
+import { UserService } from '../services/user.service';
+import { UserStoreService } from '../services/store/user-store.service';
+import { ListStoreService } from '../services/store/list-store.service';
 
 @Injectable()
 export class AuthService {

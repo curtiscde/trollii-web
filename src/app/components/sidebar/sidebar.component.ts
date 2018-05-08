@@ -5,7 +5,7 @@ import { environment } from '../../../environments/environment';
 
 import { List } from '../../models/list';
 
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { ListService } from '../../list.service';
 import { ListStoreService } from '../../services/store/list-store.service';
 import { SidebarService } from '../../sidebar.service';

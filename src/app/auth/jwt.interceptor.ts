@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
 import 'rxjs/add/operator/do';
 import { Observable } from 'rxjs/Observable';
 
-import { AuthService } from '../auth.service';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {

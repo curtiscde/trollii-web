@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { MatSnackBar } from '@angular/material';
 
-import { AuthService } from '../auth.service';
+import { AuthService } from '../auth/auth.service';
 import { GoogleAnalyticsService } from '../google-analytics.service';
 import { ListService } from '../list.service';
 import { ListStoreService } from '../services/store/list-store.service';
