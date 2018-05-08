@@ -52,6 +52,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 import { AuthService } from './auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
+import { JwtInterceptor } from './auth/jwt.interceptor';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -149,6 +150,11 @@ import { ListMembersComponent } from './components/list-members/list-members.com
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
       multi: true
     }
   ],
